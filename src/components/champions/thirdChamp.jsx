@@ -39,7 +39,7 @@ const Champ = ({
           backgroundSize: "cover"
         }}
       >
-        <div className="mbr-overlay" style={{opacity: "0.5", backgroundColor: "rgb(0, 0, 0)"}}></div>
+        <div className="mbr-overlay" style={{opacity: "0.5", backgroundColor: "rgb(15, 0, 0)"}}></div>
         <Container>
           <h3 className="display-5 text-light ml-5">{title}{fun && " FUN"}</h3>
           <Container>
@@ -59,7 +59,7 @@ const Champ = ({
                     <strong>{atAddressString}</strong>
                   </div>
                 </Button>
-                <QRCode value={atAddressString} className="border ml-2" />
+                <QRCode value={atAddressString} className="border" />
               </div>
             </div>
             

@@ -1,0 +1,157 @@
+import React from "react";
+import QRCode from "qrcode.react";
+
+
+import { convertNumericIdToAddress, sumNQTStringToNumber } from "@burstjs/util";
+import { copyToClip } from "./funcions/funcions";
+
+import Marquee from 'react-text-marquee';
+
+
+import Container from "react-bootstrap/Container";
+
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+
+const Champ = ({
+  background,
+  title,
+  atAddress,
+  defending,
+  fighting,
+  unConfTrans,
+  weight,
+  ownersList,
+  lang,
+  fun,
+  explorer
+}) => {
+  let atAddressString = convertNumericIdToAddress(atAddress);
+  let defenderAddress = convertNumericIdToAddress(defending);
+  return (
+    <React.Fragment>
+      <Container
+        fluid
+        
+        style={{
+          backgroundImage: `url(${background})`,
+          paddingTop: "80px",
+          paddingBottom: "80px",
+          backgroundRepeat:"no-repeat",
+          backgroundSize: "cover"
+        }}
+      >
+        <div className="mbr-overlay" style={{opacity: "0.5", backgroundColor: "rgb(0, 0, 0)"}}></div>
+        <Container>
+          <h3 className="display-5 text-light ml-5">{title}{fun && " FUN"}</h3>
+          <Container>
+            <div onClick={() => copyToClip(atAddressString)}>
+              <div
+                className="btn-group btn-block ml-1"
+                role="group"
+                aria-label="Button group with nested dropdown"
+              >
+                <Button className="btn btn-lg btn-info text-left text-white ">
+                  {lang === "eng" ? (
+                    <div>Smart contract address, send BURST to challenge</div>
+                  ) : (
+                    <div>智能合同地址，发送Burst以挑战</div>
+                  )}
+                  <div>
+                    <strong>{atAddressString}</strong>
+                  </div>
+                </Button>
+                <QRCode value={atAddressString} className="border ml-3" />
+              </div>
+            </div>
+            <div className="m-1">
+              <Button
+                className="btn-lg btn-info text-left text-white btn-block mb-2"
+                target="_blank"
+                
+                rel="noopener noreferrer"
+                href={explorer + defending}
+              >
+                {lang === "eng" ? (
+                  <div>Defending champion</div>
+                ) : (
+                  <div>卫冕冠军</div>
+                )}
+                <div>
+                  <strong>{defenderAddress}</strong> {/*  id="champ1" */}
+                </div>
+              </Button>
+            </div>
+
+            <div className="m-1">
+              <Button
+                block
+                className="btn-lg btn-info text-left text-white"
+               
+                target="_blank"
+                rel="noopener noreferrer"
+                href={explorer + atAddress}
+              >
+                 <Marquee loop hoverToStop text={lang === "eng" ? (
+                    !fighting && unConfTrans.length === 0 ? (
+                      "Waiting for challenge"
+                    ) : fighting ? (
+                      
+                        "Fighting on-chain!"
+                      
+                    ) : (
+                      <span>
+                        {`Next fight | finale ${unConfTrans.map(
+                          t =>
+                            t.senderRS.substring(21) +
+                            " (" +
+                            sumNQTStringToNumber(t.amountNQT) +
+                            " BURST," +
+                            ` ${Math.ceil(
+                              (sumNQTStringToNumber(t.amountNQT) /
+                                (weight + sumNQTStringToNumber(t.amountNQT))) *
+                                100
+                            )} % Chanse) `
+                        )}`}{" "}
+                      </span>
+                    )
+                  ) : !fighting && unConfTrans.length === 0 ? (
+                    <span>等待挑战者</span>
+                  ) : fighting ? (
+                    <span>
+                      <i>Fighting</i> on-chain!(no translation )
+                    </span>
+                  ) : (
+                    <span>
+                      {`Next fight | finale ${unConfTrans.map(
+                        t =>
+                          t.senderRS.substring(21) +
+                          " (" +
+                          sumNQTStringToNumber(t.amountNQT) +
+                          " BURST," +
+                          ` ${Math.ceil(
+                            (sumNQTStringToNumber(t.amountNQT) /
+                              (weight + sumNQTStringToNumber(t.amountNQT))) *
+                              100
+                          )} % Chanse) `
+                      )}`}{" "}
+                    </span>
+                  )} />
+                                 
+                
+              </Button>
+            </div>
+            <Card className="lead ml-4">
+           <div className="m-1">
+          <Marquee loop hoverToStop text={ownersList.toString()} />
+          </div>
+          </Card>
+          </Container>
+          
+        </Container>
+      </Container>
+    </React.Fragment>
+  );
+};
+
+export default Champ;

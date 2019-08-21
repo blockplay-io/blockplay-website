@@ -6,6 +6,7 @@ import {
   NavLink,
   Switch
 } from "react-router-dom";
+import ScrollToTop from 'react-router-scroll-top';
 
 import "./assets/bootstrap/css/bootstrap.min.css";
 import "./assets/bootstrap/css/bootstrap-reboot.min.css";
@@ -61,6 +62,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Router>
+        <ScrollToTop>
           <Navbar expand="md" bg="dark" sticky="top">
             <Navbar.Brand as={Link} to="/">
               <strong>
@@ -164,6 +166,7 @@ class App extends Component {
               )}
             />
           </Switch>
+          </ScrollToTop>
         </Router>
         <Footer lang={lang} />
       </React.Fragment>

@@ -10,13 +10,11 @@ import Col from "react-bootstrap/Col";
 const First = ({ lang, fun }) => {
   return (
     <Container
-      className="mbr-fonts-style"
+      className="mbr-fonts-style mbr-fullscreen"
       fluid
       style={{
         backgroundImage: `url(${mainPicture})`,
-        backgroundSize: "cover",
-        paddingTop: "115px",
-        paddingBottom: "115px"
+        backgroundSize: "cover"      
       }}
     >
       <div

@@ -20,12 +20,11 @@ const Second = ({
 }) => {
   return (
     <Container
+      className="mbr-fonts-style mbr-fullscreen"
       fluid
       style={{
         backgroundImage: `url(${chain})`,
         backgroundSize: "cover",
-        paddingTop: "120px",
-        paddingBottom: "120px"
       }}
     >
       <div
@@ -58,13 +57,13 @@ const Second = ({
               convertNumericIdToAddress(owner) +
               owners.map(
                 a =>
-                  " | " +
+                " | " +
                   a.name +
                   " (" +
                   a.amount +
                   "  BURST, block " +
                   a.lostBlock +
-                  ") "
+                  " )"
               )
             }
           />

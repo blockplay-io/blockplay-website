@@ -7,11 +7,10 @@ const Kohinoor = ({ lang }) => {
   return (
     <Container
       fluid
-      className="article"
+      className="article mbr-fonts-style mbr-fullscreen"
       style={{
-        backgroundColor: "rgb(242, 242, 242)",
-        paddingTop: "120px",
-        paddingBottom: "120px"
+        backgroundColor: "rgb(242, 242, 242)"
+        
       }}
     >
       <Container>

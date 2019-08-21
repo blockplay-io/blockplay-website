@@ -12,10 +12,9 @@ const Second = ({ lang }) => {
   return (
     <Container
       fluid
+      className="mbr-fonts-style mbr-fullscreen"
       style={{
         backgroundColor: "rgb(242, 242, 242)",
-        paddingTop: "80px",
-        paddingBottom: "80px",
         backgroundSize: "cover"
       }}
     >

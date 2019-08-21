@@ -32,11 +32,9 @@ const Champ = ({
     <React.Fragment>
       <Container
         fluid
-        
+        className="mbr-fonts-style mbr-fullscreen justify-content-center"
         style={{
           backgroundImage: `url(${background})`,
-          paddingTop: "80px",
-          paddingBottom: "80px",
           backgroundRepeat:"no-repeat",
           backgroundSize: "cover"
         }}
@@ -47,11 +45,11 @@ const Champ = ({
           <Container>
             <div onClick={() => copyToClip(atAddressString)}>
               <div
-                className="btn-group btn-block ml-1"
+                className="btn-group btn-block"
                 role="group"
-                aria-label="Button group with nested dropdown"
+                aria-label="Button group with nested information"
               >
-                <Button className="btn btn-lg btn-info text-left text-white ">
+                <Button className="btn-lg btn-info text-left text-white">
                   {lang === "eng" ? (
                     <div>Smart contract address, send BURST to challenge</div>
                   ) : (
@@ -61,12 +59,12 @@ const Champ = ({
                     <strong>{atAddressString}</strong>
                   </div>
                 </Button>
-                <QRCode value={atAddressString} className="border ml-3" />
+                <QRCode value={atAddressString} className="border ml-2" />
               </div>
             </div>
-            <div className="m-1">
+            
               <Button
-                className="btn-lg btn-info text-left text-white btn-block mb-2"
+                className="btn-lg btn-info text-left text-white btn-block"
                 target="_blank"
                 
                 rel="noopener noreferrer"
@@ -81,9 +79,9 @@ const Champ = ({
                   <strong>{defenderAddress}</strong> {/*  id="champ1" */}
                 </div>
               </Button>
-            </div>
+            
 
-            <div className="m-1">
+            
               <Button
                 block
                 className="btn-lg btn-info text-left text-white"
@@ -140,11 +138,11 @@ const Champ = ({
                                  
                 
               </Button>
-            </div>
+            
             <Card className="lead ml-4">
-           <div className="m-1">
+           
           <Marquee loop hoverToStop text={ownersList.toString()} />
-          </div>
+          
           </Card>
           </Container>
           

@@ -7,11 +7,11 @@ const History = ({ lang }) => {
   return (
     <Container
       fluid
+      className="mbr-fonts-style mbr-fullscreen"
       style={{
         backgroundImage: `url(${drawing})`,
-        backgroundSize: "cover",
-        paddingTop: "120px",
-        paddingBottom: "120px"
+        backgroundSize: "cover"
+     
       }}
     >
       <Container>

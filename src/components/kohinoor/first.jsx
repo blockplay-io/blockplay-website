@@ -16,7 +16,7 @@ const First = ({ lang, price, owner, unConf, ownerName }) => {
   return (
     <Container
       fluid
-      className="mbr-fonts-style"
+      className="mbr-fonts-style  mbr-fullscreen"
       style={{ backgroundImage: `url(${daimondImg})`, backgroundSize: "cover" }}
     >
       <div
@@ -26,12 +26,12 @@ const First = ({ lang, price, owner, unConf, ownerName }) => {
       <Row className="justify-content-end">
         <Col
           md={{ span: 10, offset: 2 }}
-          className="text-xs-right text-right text-white mr-4"
+          className="text-xs-right text-right text-white"
         >
-          <h1 className="display-4 text-right text-white font-weight-bold m-5 font-italic">
+          <h1 className="display-4 text-right text-white font-weight-bold font-italic mr-3">
             KOH-I-NOOR EXPERIMENT
           </h1>
-          <div>
+          <div className="mr-3">
             {lang === "eng" ? (
               <p className="lead font-italic">
                 Become the Koh-i-Noor owner in this virtual reality experiment

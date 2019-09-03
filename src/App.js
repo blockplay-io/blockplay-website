@@ -27,6 +27,8 @@ import {
   EXPLORERFUN
 } from "./components/champions/constants/const";
 
+import Auction from "./components/blockauction/App";
+
 import Footer from "./components/footer";
 
 import Kohinoor from "./components/kohinoor/App";
@@ -114,6 +116,18 @@ class App extends Component {
                     Champions Fun
                   </Button>
                 </Nav.Item>
+                <Nav.Item>
+                  <Button
+                    as={NavLink}
+                    className="mt-3"
+                    to="/auction"
+                    variant="info"
+                    activeClassName="border"
+                    size="sm"
+                  >
+                    Auction
+                  </Button>
+                </Nav.Item>
                 {/*<Nav.Item>
                   <Nav.Link href="https://slots.blockplay.io/" target="_blank">
                     <Button variant="info" size="sm">
@@ -160,6 +174,19 @@ class App extends Component {
                   apiSettings={apiSettingsFun}
                   ats={atsFUN}
                   fun={true}
+                  lang={lang}
+                  explorer={EXPLORERFUN}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/auction"
+              render={props => (
+                <Auction
+                  apiSettings={apiSettingsFun}
+                  atsAuction={atsFUN}
+                  
                   lang={lang}
                   explorer={EXPLORERFUN}
                 />

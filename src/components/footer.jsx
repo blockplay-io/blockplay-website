@@ -60,7 +60,7 @@ const Footer = ({ lang }) => {
                 BlockPlay.io
               </a>
               <br />
-              <Row className="mt-1">
+              <Row className="mt-1" id="socNetworks">
                 <ButtonGroup aria-label="Social networks">
                   <Button
                     href="https://twitter.com/shefass"

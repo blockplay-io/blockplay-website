@@ -27,7 +27,7 @@ const First = ({ lang }) => {
               className="text-xs-right text-right text-white"
             >
               <h1 className="display-4 font-weight-bold m-4 font-italic">
-                BLOCK AUCTION
+               <span style={{whiteSpace: "nowrap"}}> BLOCK</span> <span style={{whiteSpace: "nowrap"}}>AUCTION</span>
               </h1>
 
               <h4>THIS VERSION RUNS AT TESTNET WITH NO REAL VALUE</h4>

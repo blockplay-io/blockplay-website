@@ -34,8 +34,8 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
         style={{ opacity: "0.5", backgroundColor: "rgb(0, 0, 0)" }}
       />
       <Row>
-        <Col lg="6">
-          <Carousel style={{ minWidth: 400, maxWidth: 600 }}>
+        <Col xs={12} lg={6}>
+          <Carousel style={{ maxWidth: 600 }}>
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -70,7 +70,7 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
           </Carousel>
         </Col>
 
-        <Col lg="6" className="text-xs-right text-right text-white">
+        <Col xs={12} lg={6} className="text-xs-right text-right text-white">
           <h1 className="display-4 text-right text-white font-weight-bold font-italic mr-3">
             THE FIRST BURST AUCTION
           </h1>

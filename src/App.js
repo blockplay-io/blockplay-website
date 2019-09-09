@@ -22,10 +22,11 @@ import BlockPlay from "./components/blockplay/App";
 import {
   ats,
   atsFUN,
+  atsAuction,
   NODEFUN,
   EXPLORER,
   EXPLORERFUN
-} from "./components/champions/constants/const";
+} from "./constants/const"; 
 
 import Auction from "./components/blockauction/App";
 
@@ -125,7 +126,7 @@ class App extends Component {
                     activeClassName="border"
                     size="sm"
                   >
-                    Auction
+                    Auction Test
                   </Button>
                 </Nav.Item>
                 {/*<Nav.Item>
@@ -185,7 +186,7 @@ class App extends Component {
               render={props => (
                 <Auction
                   apiSettings={apiSettingsFun}
-                  atsAuction={atsFUN}
+                  atsAuction={atsAuction}
                   
                   lang={lang}
                   explorer={EXPLORERFUN}

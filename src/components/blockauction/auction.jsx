@@ -1,9 +1,10 @@
 import React from "react";
 import QRCode from "qrcode.react";
+import Marquee from 'react-text-marquee';
 
 import { copyToClip } from "../../funcions/funcions";
 
-import { convertNumericIdToAddress } from "@burstjs/util";
+import { convertNumericIdToAddress, sumNQTStringToNumber } from "@burstjs/util";
 import keyChainSea from "./data/keyChainSeaResized.jpg";
 import keyChainHolding from "./data/keyChainHoldingResized.jpg";
 import keyChainParket from "./data/keyChainParketResized.jpg";
@@ -17,9 +18,11 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 
-//const atRS = convertNumericIdToAddress(at);
 
-const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
+
+const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
+  const atRS = convertNumericIdToAddress(at);
+  const ownerRs = convertNumericIdToAddress(owner);
   return (
     <Container
       fluid
@@ -84,7 +87,7 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
 
           <div>
             <div style={{ width: "210px", float: "left" }}>
-              {/* <QRCode value={atRS} className="border" />*/}
+              
             </div>
             <div>
               <Button
@@ -93,7 +96,7 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
                 className="text-right text-white mb-2"
                 onClick={() => copyToClip(atRS)}
               >
-                
+                <QRCode value={atRS} className="border" />
                   <div>Auction address</div>
                             
 
@@ -113,6 +116,9 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
               >
            
                   <div>Current auction leader</div>
+                <div>
+                  <strong>{ownerRs}</strong>
+                </div>
               
                 {/*<strong>
                   {ownerName + " " + convertNumericIdToAddress(owner)}
@@ -142,7 +148,8 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
                 variant="info"
                 className="text-right text-white mb-2"
               >
-                Time left until the auction will finnish
+                <div>Time left until the auction will finish</div>
+                {time !== 0 ? `${time} blocks or about ${time*4} min` : <strong>Auction finished! Wait for next one</strong>}
               </Button>
             </div>
             <div>
@@ -152,9 +159,23 @@ const Auctions = ({ lang, price, owner, atRS, at, explorer }) => {
                 className="text-right text-white mb-2"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{maxWidth: 400}}
                 href={explorer + at}
               >
-                (Here info from unconfirmed transactions)
+               <Marquee loop hoverToStop text={
+                  unConfTrans.length === 0 ? 
+                  ("Waiting for bid") : 
+                    
+                      `Biders list: ${unConfTrans.map(
+                        t =>
+                          t.senderRS.substring(21) +
+                          " (" +
+                          sumNQTStringToNumber(t.amountNQT) +
+                          " BURST)")}
+                      `
+                   
+
+               } />
               </Button>
               {/* <p>{unConf}</p> */}
             </div>

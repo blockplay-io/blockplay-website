@@ -9,7 +9,7 @@ import Champ from "./thirdChamp";
 import imgHeavy from "./data/heavy-d.jpg";
 import imgMiddle from "./data/middle-d.jpg";
 import imgLight from "./data/light-e.jpg";
-import { creator } from "./constants/const";
+import { creator } from "../../constants/const";
 
 //const apiSettings = new ApiSettings(NODE, "burst");
 

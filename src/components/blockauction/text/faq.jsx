@@ -28,9 +28,9 @@ export const  faqText = [
     {
       id: 3,
       textEng: {
-        title: "What is time out?",
+        title: "What happens then a auction finish?",
         text:
-          "Time out is a time after which the smart contract will finish. After this time the auctions smart contract will be not active and it will not refund transactions,  so don't send to it."
+          "After this time the auctions smart contract will be sleeping and it will only returns back transactions,  so don't send to it."
       },
       textCh: {
         title: "Sorry, no translation",
@@ -107,14 +107,14 @@ export const  faqText = [
     {
       id: 10,
       textEng: {
-        title: "Where the 30 BURST go (activation fee)?",
+        title: "Where the 22 BURST go (activation fee)?",
         text:
           "Every smart contract running in the blockchain cost BURST to" +
-          " run, collected by miners. The block auction smart contract costs around 30 BURST to run."
+          " run, collected by miners. The block auction smart contract costs around 22 BURST to run."
       },
       textCh: {
-        title: "30 BURST的用意是什么（激活费）？",
-        text: "在区块链中运行的每个智能合约都需要BURST来运营，并由矿工收集。该区块冠军的智能合约需约30 BURST的成本。"
+        title: "22 BURST的用意是什么（激活费）？",
+        text: "在区块链中运行的每个智能合约都需要BURST来运营，并由矿工收集。该区块冠军的智能合约需约22 BURST的成本。"
       }
     },
     {

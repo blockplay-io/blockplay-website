@@ -1,6 +1,6 @@
 import React from "react";
 import QRCode from "qrcode.react";
-import Marquee from 'react-text-marquee';
+import Marquee from "react-text-marquee";
 
 import { copyToClip } from "../../funcions/funcions";
 
@@ -18,9 +18,16 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 
-
-
-const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
+const Auctions = ({
+  lang,
+  price,
+  owner,
+  at,
+  explorer,
+  time,
+  unConfTrans,
+  name
+}) => {
   const atRS = convertNumericIdToAddress(at);
   const ownerRs = convertNumericIdToAddress(owner);
   return (
@@ -78,17 +85,15 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
             THE FIRST BURST AUCTION
           </h1>
           <div className="mr-3">
-          
-              <p className="lead font-italic">
-              Win the auction and get key chain and clip with Burst logo. Both items made from metal. Free worldwide shipment. Before bidding please look to FAQ. 
-              </p>
-            
+            <p className="lead font-italic">
+              Win the auction and get key chain and clip with Burst logo. Both
+              items made from metal. Free worldwide shipment. Before bidding
+              please look to FAQ.
+            </p>
           </div>
 
           <div>
-            <div style={{ width: "210px", float: "left" }}>
-              
-            </div>
+            <div style={{ width: "210px", float: "left" }}></div>
             <div>
               <Button
                 variant="info"
@@ -97,8 +102,7 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
                 onClick={() => copyToClip(atRS)}
               >
                 <QRCode value={atRS} className="border" />
-                  <div>Auction address</div>
-                            
+                <div>Auction address</div>
 
                 <div>
                   <strong>{atRS}</strong>
@@ -114,12 +118,13 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
                 rel="noopener noreferrer"
                 href={explorer + owner}
               >
-           
-                  <div>Current auction leader</div>
+                <div>Current auction leader</div>
                 <div>
-                  <strong>{ownerRs}</strong>
+                  <strong>
+                    {name} {ownerRs}
+                  </strong>
                 </div>
-              
+
                 {/*<strong>
                   {ownerName + " " + convertNumericIdToAddress(owner)}
                 </strong>{" "}*/}
@@ -134,9 +139,8 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
                 className="text-right text-white mb-2"
                 onClick={() => copyToClip(price)}
               >
-           
-                  <div>Current bid</div>
-            
+                <div>Current bid</div>
+
                 <div>
                   <strong>{price + " BURST"}</strong>
                 </div>
@@ -149,7 +153,13 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
                 className="text-right text-white mb-2"
               >
                 <div>Time left until the auction will finish</div>
-                {time !== 0 ? `${time} blocks or about ${time*4} min` : <strong>Auction finished! Wait for next one</strong>}
+                {time !== 0 ? (
+                  `${time} blocks or about ${Math.floor(
+                    (time * 4) / 60
+                  )}h and ${time * 4 - Math.floor((time * 4) / 60) * 60}min`
+                ) : (
+                  <strong>Auction finished! Wait for next one</strong>
+                )}
               </Button>
             </div>
             <div>
@@ -159,23 +169,25 @@ const Auctions = ({ lang, price, owner, at, explorer, time, unConfTrans }) => {
                 className="text-right text-white mb-2"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{maxWidth: 400}}
+                style={{ maxWidth: 400 }}
                 href={explorer + at}
               >
-               <Marquee loop hoverToStop text={
-                  unConfTrans.length === 0 ? 
-                  ("Waiting for bid") : 
-                    
-                      `Biders list: ${unConfTrans.map(
-                        t =>
-                          t.senderRS.substring(21) +
-                          " (" +
-                          sumNQTStringToNumber(t.amountNQT) +
-                          " BURST)")}
+                <Marquee
+                  loop
+                  hoverToStop
+                  text={
+                    unConfTrans.length === 0
+                      ? "Waiting for bid"
+                      : `Biders list: ${unConfTrans.map(
+                          t =>
+                            t.senderRS.substring(21) +
+                            " (" +
+                            sumNQTStringToNumber(t.amountNQT) +
+                            " BURST)"
+                        )}
                       `
-                   
-
-               } />
+                  }
+                />
               </Button>
               {/* <p>{unConf}</p> */}
             </div>

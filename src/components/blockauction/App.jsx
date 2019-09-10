@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { composeApi, ContractHelper } from "@burstjs/core";
+import { composeApi } from "@burstjs/core";
 import { sumNQTStringToNumber } from "@burstjs/util";
 import First from "./first";
 import Second from "./second";
@@ -14,29 +14,37 @@ class Auction extends Component {
     this.state = {
       blockNow: 80000,
       first: {
+        active: true,
         price: 400,
         owner: "5671558278589810439",
+        name: null,
         unConfTrans: [],
-        time: 1440,
+        time: 15,
         timeLeft: 1440
       },
       second: {
+        active: true,
         price: 400,
         owner: "5671558278589810439",
+        name: null,
         unConfTrans: [],
         time: 1440,
         timeLeft: 1440
       },
       third: {
+        active: true,
         price: 400,
         owner: "5671558278589810439",
+        name: null,
         unConfTrans: [],
         time: 1440,
         timeLeft: 1440
       },
       fourth: {
+        active: true,
         price: 400,
         owner: "5671558278589810439",
+        name: null,
         unConfTrans: [],
         time: 1440,
         timeLeft: 1440
@@ -86,119 +94,179 @@ class Auction extends Component {
     let copyState = { ...this.state };
     switch (value.at) {
       case this.ats[0]:
-        let blocksFromCreation = copyState.blockNow - value.creationBlock;
-        copyState.first.timeLeft = copyState.first.time - blocksFromCreation;
-        this.api.account
-          .getUnconfirmedAccountTransactions(this.ats[0])
-          .then(
-            result =>
-              (copyState.first.unConfTrans = result.unconfirmedTransactions)
-          );
+        if (this.state.first.active) {
+          let blocksFromCreation = copyState.blockNow - value.creationBlock;
+          copyState.first.timeLeft = copyState.first.time - blocksFromCreation;
+          if (copyState.first.timeLeft < 1) {
+            copyState.first.active = false;
+          }
+          this.api.account
+            .getUnconfirmedAccountTransactions(this.ats[0])
+            .then(
+              result =>
+                (copyState.first.unConfTrans = result.unconfirmedTransactions)
+            );
           this.api.account.getAccountTransactions(this.ats[0]).then(result => {
             if (result.transactions.length !== 0) {
               let above400 = result.transactions.reduce((total, amount) => {
                 if ((amount.amountNQT > 40000000000) & (amount.type === 0)) {
-                  total.push({ amount: amount.amountNQT, sender: amount.sender });
-                                 
+                  total.push({
+                    amount: amount.amountNQT,
+                    sender: amount.sender
+                  });
                 }
                 return total;
               }, []);
-              
-              const max = above400.reduce((prev, current) => (prev.amount > current.amount) ? prev : current)
-              let price = sumNQTStringToNumber(max.amount);
-              copyState.first.price = price;
-              copyState.first.owner = max.sender;
+              if (above400.length !== 0) {
+                const max = above400.reduce((prev, current) =>
+                  prev.amount > current.amount ? prev : current
+                );
+                let price = sumNQTStringToNumber(max.amount);
+                copyState.first.price = price;
+                copyState.first.owner = max.sender;
+              }
             }
           });
-        if (this._isMounted) {
-          this.setState({ copyState });
+          this.api.account.getAccount(copyState.first.owner).then(result => {
+            if (result.hasOwnProperty("name")) {
+              return (copyState.first.name = result.name);
+            }
+            return (copyState.first.name = null);
+          });
+
+          if (this._isMounted) {
+            this.setState({ copyState });
+          }
         }
         break;
       case this.ats[1]:
-        copyState.second.timeLeft =
-          copyState.second.time - (copyState.blockNow - value.creationBlock);
-        this.api.account
-          .getUnconfirmedAccountTransactions(this.ats[1])
-          .then(
-            result =>
-              (copyState.second.unConfTrans = result.unconfirmedTransactions)
-          );
+        if (this.state.second.active) {
+          copyState.second.timeLeft =
+            copyState.second.time - (copyState.blockNow - value.creationBlock);
+          if (copyState.second.timeLeft < 1) copyState.second.active = false;
+          this.api.account
+            .getUnconfirmedAccountTransactions(this.ats[1])
+            .then(
+              result =>
+                (copyState.second.unConfTrans = result.unconfirmedTransactions)
+            );
           this.api.account.getAccountTransactions(this.ats[1]).then(result => {
             if (result.transactions.length !== 0) {
               let above400 = result.transactions.reduce((total, amount) => {
                 if ((amount.amountNQT > 40000000000) & (amount.type === 0)) {
-                  total.push({ amount: amount.amountNQT, sender: amount.sender });
-                                 
+                  total.push({
+                    amount: amount.amountNQT,
+                    sender: amount.sender
+                  });
                 }
                 return total;
               }, []);
-              
-              const max = above400.reduce((prev, current) => (prev.amount > current.amount) ? prev : current)
-              let price = sumNQTStringToNumber(max.amount);
-              copyState.second.price = price;
-              copyState.second.owner = max.sender;
+              if (above400.length !== 0) {
+                const max = above400.reduce((prev, current) =>
+                  prev.amount > current.amount ? prev : current
+                );
+                let price = sumNQTStringToNumber(max.amount);
+                copyState.second.price = price;
+                copyState.second.owner = max.sender;
+              }
             }
           });
-        if (this._isMounted) {
-          this.setState({ copyState });
+          this.api.account.getAccount(copyState.second.owner).then(result => {
+            if (result.hasOwnProperty("name")) {
+              return (copyState.second.name = result.name);
+            }
+            return (copyState.second.name = null);
+          });
+
+          if (this._isMounted) {
+            this.setState({ copyState });
+          }
         }
         break;
       case this.ats[2]:
-        copyState.third.timeLeft =
-          copyState.third.time - (copyState.blockNow - value.creationBlock);
-        this.api.account
-          .getUnconfirmedAccountTransactions(this.ats[2])
-          .then(
-            result =>
-              (copyState.third.unConfTrans = result.unconfirmedTransactions)
-          );
+        if (this.state.third.active) {
+          copyState.third.timeLeft =
+            copyState.third.time - (copyState.blockNow - value.creationBlock);
+          if (copyState.third.timeLeft < 1) copyState.third.active = false;
+          this.api.account
+            .getUnconfirmedAccountTransactions(this.ats[2])
+            .then(
+              result =>
+                (copyState.third.unConfTrans = result.unconfirmedTransactions)
+            );
           this.api.account.getAccountTransactions(this.ats[2]).then(result => {
             if (result.transactions.length !== 0) {
               let above400 = result.transactions.reduce((total, amount) => {
                 if ((amount.amountNQT > 40000000000) & (amount.type === 0)) {
-                  total.push({ amount: amount.amountNQT, sender: amount.sender });
-                                 
+                  total.push({
+                    amount: amount.amountNQT,
+                    sender: amount.sender
+                  });
                 }
                 return total;
               }, []);
-              
-              const max = above400.reduce((prev, current) => (prev.amount > current.amount) ? prev : current)
-              let price = sumNQTStringToNumber(max.amount);
-              copyState.third.price = price;
-              copyState.third.owner = max.sender;
+              if (above400.length !== 0) {
+                const max = above400.reduce((prev, current) =>
+                  prev.amount > current.amount ? prev : current
+                );
+                let price = sumNQTStringToNumber(max.amount);
+                copyState.third.price = price;
+                copyState.third.owner = max.sender;
+              }
             }
           });
-        if (this._isMounted) {
-          this.setState({ copyState });
+          this.api.account.getAccount(copyState.third.owner).then(result => {
+            if (result.hasOwnProperty("name")) {
+              return (copyState.third.name = result.name);
+            }
+            return (copyState.third.name = null);
+          });
+          if (this._isMounted) {
+            this.setState({ copyState });
+          }
         }
         break;
       case this.ats[3]:
-        copyState.fourth.timeLeft =
-          copyState.fourth.time - (copyState.blockNow - value.creationBlock);
-        this.api.account
-          .getUnconfirmedAccountTransactions(this.ats[3])
-          .then(
-            result =>
-              (copyState.fourth.unConfTrans = result.unconfirmedTransactions)
-          );
-        this.api.account.getAccountTransactions(this.ats[3]).then(result => {
-          if (result.transactions.length !== 0) {
-            let above400 = result.transactions.reduce((total, amount) => {
-              if ((amount.amountNQT > 40000000000) & (amount.type === 0)) {
-                total.push({ amount: amount.amountNQT, sender: amount.sender });
-                               
+        if (this.state.fourth.active) {
+          copyState.fourth.timeLeft =
+            copyState.fourth.time - (copyState.blockNow - value.creationBlock);
+          if (copyState.fourth.timeLeft < 1) copyState.fourth.active = false;
+          this.api.account
+            .getUnconfirmedAccountTransactions(this.ats[3])
+            .then(
+              result =>
+                (copyState.fourth.unConfTrans = result.unconfirmedTransactions)
+            );
+          this.api.account.getAccountTransactions(this.ats[3]).then(result => {
+            if (result.transactions.length !== 0) {
+              let above400 = result.transactions.reduce((total, amount) => {
+                if ((amount.amountNQT > 40000000000) & (amount.type === 0)) {
+                  total.push({
+                    amount: amount.amountNQT,
+                    sender: amount.sender
+                  });
+                }
+                return total;
+              }, []);
+              if (above400.length !== 0) {
+                const max = above400.reduce((prev, current) =>
+                  prev.amount > current.amount ? prev : current
+                );
+                let price = sumNQTStringToNumber(max.amount);
+                copyState.fourth.price = price;
+                copyState.fourth.owner = max.sender;
               }
-              return total;
-            }, []);
-            
-            const max = above400.reduce((prev, current) => (prev.amount > current.amount) ? prev : current)
-            let price = sumNQTStringToNumber(max.amount);
-            copyState.fourth.price = price;
-            copyState.fourth.owner = max.sender;
+            }
+          });
+          this.api.account.getAccount(copyState.fourth.owner).then(result => {
+            if (result.hasOwnProperty("name")) {
+              return (copyState.fourth.name = result.name);
+            }
+            return (copyState.fourth.name = null);
+          });
+          if (this._isMounted) {
+            this.setState({ copyState });
           }
-        });
-        if (this._isMounted) {
-          this.setState({ copyState });
         }
         break;
       default:
@@ -221,6 +289,7 @@ class Auction extends Component {
           lang={this.props.lang}
           price={this.state.first.price}
           owner={this.state.first.owner}
+          name={this.state.first.name}
           unConfTrans={this.state.first.unConfTrans}
           explorer={this.props.explorer}
           at={this.props.atsAuction[0]}
@@ -230,6 +299,7 @@ class Auction extends Component {
           lang={this.props.lang}
           price={this.state.second.price}
           owner={this.state.second.owner}
+          name={this.state.second.name}
           unConfTrans={this.state.second.unConfTrans}
           explorer={this.props.explorer}
           at={this.props.atsAuction[1]}

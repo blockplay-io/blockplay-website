@@ -129,6 +129,30 @@ export const  faqText = [
         title: "什么是最低交易费？",
         text: "Burst区块链中的每笔交易都需要付费才能获得处理。更高的费用具有更高的优先级，但如果您选择标准费用，您也应该不会有问题。"
       }
+    },
+    {
+      id: 12,
+      textEng: {
+        title: "What is a block?",
+        text:
+          "Blockchain consists from the chain of blocks, every block holds transactions and blockchain state. Burst blocks time is 4 minutes average." +
+          "It is average, so block time can be shorter or longer."
+      },
+      textCh: {
+        title: "sorry no translation"
+      
+      }
+    },
+    {
+      id: 13,
+      textEng: {
+        title: "When a auction will start?",
+        text:
+          "It will start after the first transaction to it." 
+      },
+      textCh: {
+        title: "sorry no translation"
+      }
     }
   ];
   

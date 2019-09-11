@@ -27,7 +27,9 @@ const Auctions = ({
   time,
   unConfTrans,
   name,
-  finished
+  finished,
+  active,
+  startTimer
 }) => {
   const atRS = convertNumericIdToAddress(at);
   const ownerRs = convertNumericIdToAddress(owner);
@@ -87,8 +89,8 @@ const Auctions = ({
           </h1>
           <div className="mr-3">
             <p className="lead font-italic">
-              Win the auction and get key chain and clip with Burst logo. Both
-              items made from metal. Free worldwide shipment. Before bidding
+              Win the auction and get key chain and clip with Burst logo and you will be remembered as the winner of <strong>The First Burst Auction! </strong> 
+              Both items made from metal. Free worldwide shipment. Before bidding
               please look to FAQ.
             </p>
           </div>
@@ -154,7 +156,9 @@ const Auctions = ({
                 className="text-right text-white mb-2"
               >
                 <div>Time left until the auction will finish</div>
-                {time > 0 ? (
+                {!startTimer & !finished ? 
+                  "Auction timer will start after the first bid" : startTimer ?
+                (
                   `${time} blocks or about ${Math.floor(
                     (time * 4) / 60
                   )}h and ${time * 4 - Math.floor((time * 4) / 60) * 60}min`

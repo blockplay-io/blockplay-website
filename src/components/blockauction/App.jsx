@@ -12,16 +12,18 @@ class Auction extends Component {
     this.api = composeApi(this.props.apiSettings);
     this.ats = this.props.atsAuction;
     this.state = {
-      blockNow: 80000,
+      blockNow: 663609,
       first: {
         finished: false,
         active: false,
+        startTimer: false,
         price: 400,
-        owner: "5671558278589810439",
+        owner: "399474066476911189",
         name: null,
         unConfTrans: [],
-        time: 15,
-        timeLeft: 1440
+        time: 720,
+        timeLeft: 720,
+        error: false
       }
     };
   }
@@ -64,30 +66,37 @@ class Auction extends Component {
 
   setInitialAuctions = value => {
     //const helper = new ContractHelper(value);
-
-    let copyState = { ...this.state };
     switch (value.at) {
-      case this.ats[0]:         //I left this for easy ading more auctions
-          this.api.account      //looks for unconf trans, if transaction >== to price, sets state active: true 
+      case this.ats[0]: //I left this for easy ading more auctions
+        this.api.account //looks for unconf trans, if transaction >== to price, sets state active: true
           .getUnconfirmedAccountTransactions(this.ats[0])
-          .then(
-            result => {
-              copyState.first.unConfTrans = result.unconfirmedTransactions;
-              let obove400 = result.unconfirmedTransactions.some(a => sumNQTStringToNumber(a.amountNQT) >= copyState.first.price)
-              if(obove400 & this._isMounted){ copyState.first.active = true }
+          .then(result => {
+            let copyState = { ...this.state };
+            copyState.first.unConfTrans = result.unconfirmedTransactions;
+            let obove400 = result.unconfirmedTransactions.some(
+              a => sumNQTStringToNumber(a.amountNQT) >= 400
+            );
+            if (obove400 & this._isMounted) {
+              copyState.first.active = true;
             }
-          );
-        if (copyState.first.timeLeft < 1) {
-          copyState.first.finished = true;
-        } 
-         
-        if (this.state.first.active & !this.state.first.finished) {
-               
+            if (this._isMounted) {
+              this.setState({ copyState });
+            }
+          });
+
+        
+        if (!this.state.first.finished) {
+          let copyState = { ...this.state };
           this.api.account.getAccountTransactions(this.ats[0]).then(result => {
             if (result.transactions.length !== 0) {
               let above400 = [];
               above400 = result.transactions.reduce((total, amount) => {
-                if ((sumNQTStringToNumber(amount.amountNQT) >= copyState.first.price) & (amount.type === 0)) {
+                if (
+                  (sumNQTStringToNumber(amount.amountNQT) >=
+                    400) &
+                  (amount.type === 0)
+                ) {
+
                   total.push({
                     height: amount.height,
                     amount: amount.amountNQT,
@@ -96,44 +105,54 @@ class Auction extends Component {
                 }
                 return total;
               }, []);
-              console.log(above400)
+              console.log("trans list", above400)
               
+
               if (above400.length !== 0) {
+                copyState.first.startTimer = true;
                 const max = above400.reduce((prev, current) =>
                   Number(prev.amount) > Number(current.amount) ? prev : current
                 ); //finds biggest bid
-                console.log(max)
+                
                 const auctionStartBlock = above400.reduce((prev, current) =>
                   prev.height < current.height ? prev : current
                 ); //finds smallest height
-                console.log(auctionStartBlock)
-                let price = sumNQTStringToNumber(max.amount);
-                let blocksFromCreation = copyState.blockNow - auctionStartBlock;
-                copyState.first.timeLeft = copyState.first.time - blocksFromCreation;
                 
+                let price = sumNQTStringToNumber(max.amount);
+                let blocksFromCreation = copyState.blockNow - auctionStartBlock.height+1;
+                copyState.first.timeLeft =
+                  copyState.first.time - blocksFromCreation;
+                if (copyState.first.timeLeft < 1) {
+                  copyState.first.finished = true;
+                  copyState.first.startTimer = false;
+                }
                 copyState.first.price = price;
                 copyState.first.owner = max.sender;
-                
-              }
+                if (this._isMounted) {
+                  this.setState({ copyState });
+                }
+              } 
             }
           });
-          this.api.account.getAccount(copyState.first.owner).then(result => {
+        }
+
+        this.api.account.getAccount(this.state.first.owner).then(result => {
+            let copyState = { ...this.state };
             if (result.hasOwnProperty("name")) {
-              return (copyState.first.name = result.name);
+              copyState.first.name = result.name;
+            } else {
+            copyState.first.name = null;
             }
-            return (copyState.first.name = null);
+
+            if (this._isMounted) {
+              this.setState({ copyState });
+            }
           });
 
-          if (this._isMounted) {
-            this.setState({ copyState });
-          }
-        }
-        break;
-      
+      break;
+
       default:
-        if (this._isMounted) {
-          this.setState({ copyState });
-        }
+        console.log("No SC")
     }
   };
   showError = () => {
@@ -146,6 +165,8 @@ class Auction extends Component {
       <React.Fragment>
         <First lang={this.props.lang} />
         <Auctions
+          active={this.state.first.active}
+          startTimer={this.state.first.startTimer}
           finished={this.state.first.finished}
           time={this.state.first.timeLeft}
           lang={this.props.lang}
@@ -156,7 +177,7 @@ class Auction extends Component {
           explorer={this.props.explorer}
           at={this.props.atsAuction[0]}
         />
-        
+
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

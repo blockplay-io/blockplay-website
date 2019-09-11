@@ -126,7 +126,7 @@ class App extends Component {
                     activeClassName="border"
                     size="sm"
                   >
-                    Auction Test
+                    Auction
                   </Button>
                 </Nav.Item>
                 {/*<Nav.Item>
@@ -185,11 +185,11 @@ class App extends Component {
               path="/auction"
               render={props => (
                 <Auction
-                  apiSettings={apiSettingsFun}
+                  apiSettings={apiSettings}
                   atsAuction={atsAuction}
                   
                   lang={lang}
-                  explorer={EXPLORERFUN}
+                  explorer={EXPLORER}
                 />
               )}
             />

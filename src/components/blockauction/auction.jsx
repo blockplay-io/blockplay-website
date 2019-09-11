@@ -26,7 +26,8 @@ const Auctions = ({
   explorer,
   time,
   unConfTrans,
-  name
+  name,
+  finished
 }) => {
   const atRS = convertNumericIdToAddress(at);
   const ownerRs = convertNumericIdToAddress(owner);
@@ -153,7 +154,7 @@ const Auctions = ({
                 className="text-right text-white mb-2"
               >
                 <div>Time left until the auction will finish</div>
-                {time !== 0 ? (
+                {time > 0 ? (
                   `${time} blocks or about ${Math.floor(
                     (time * 4) / 60
                   )}h and ${time * 4 - Math.floor((time * 4) / 60) * 60}min`
@@ -176,6 +177,7 @@ const Auctions = ({
                   loop
                   hoverToStop
                   text={
+                    finished ? "Auction finished":
                     unConfTrans.length === 0
                       ? "Waiting for bid"
                       : `Biders list: ${unConfTrans.map(

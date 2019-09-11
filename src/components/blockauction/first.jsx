@@ -32,7 +32,7 @@ const First = ({ lang }) => {
 
               <h4>THIS VERSION RUNS AT TESTNET WITH NO REAL VALUE</h4>
 
-              <h5>Decentralized auctions? Yes! Take this code (link) of smart contract 
+              <h5>Decentralized auctions? Yes! Take this <a href="https://github.com/blockplay-io/contracts/blob/master/Auction.java" target="_blank" rel="noopener noreferrer">code</a> of smart contract 
                 and create your auction with <a href="https://github.com/burst-apps-team/blocktalk" target="_blank" rel="noopener noreferrer">
                   BlockTalk</a> or just contact <a href="#socNetworks">us</a> and we will help you.</h5>
             </Col>

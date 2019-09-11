@@ -105,7 +105,7 @@ class Auction extends Component {
                 }
                 return total;
               }, []);
-              console.log("trans list", above400)
+              //console.log("trans list", above400)
               
 
               if (above400.length !== 0) {

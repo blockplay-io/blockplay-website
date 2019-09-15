@@ -19,16 +19,19 @@ import "./assets/mobirise/css/mbr-additional.css";
 import Champions from "./components/champions/App";
 import ChampionsFun from "./components/champions/AppFun";
 import BlockPlay from "./components/blockplay/App";
+import Auction from "./components/blockauction/App";
+import AuctionPast from "./components/blockauction/AppPast";
 import {
   ats,
   atsFUN,
   atsAuction,
   NODEFUN,
   EXPLORER,
-  EXPLORERFUN
+  EXPLORERFUN,
+  atsAuctionPast
 } from "./constants/const"; 
 
-import Auction from "./components/blockauction/App";
+
 
 import Footer from "./components/footer";
 
@@ -187,6 +190,19 @@ class App extends Component {
                 <Auction
                   apiSettings={apiSettings}
                   atsAuction={atsAuction}
+                  
+                  lang={lang}
+                  explorer={EXPLORER}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/pastauctions"
+              render={props => (
+                <AuctionPast
+                  apiSettings={apiSettings}
+                  atsAuction={atsAuctionPast}
                   
                   lang={lang}
                   explorer={EXPLORER}

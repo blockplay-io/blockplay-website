@@ -51,9 +51,9 @@ export const  faqText = [
     {
       id: 5,
       textEng: {
-        title: "How auction owner will contact me?",
+        title: "How the auction owner will contact me?",
         text:
-          "Auction owner will send you message to Burst address which you used in the auction."
+          "Auction owner will send you message to the Burst address which you used in the auction."
       },
       textCh: {
         title: "Sorry, no translation",
@@ -62,9 +62,9 @@ export const  faqText = [
     {
       id: 6,
       textEng: {
-        title: "Who is auction owner?",
+        title: "Who is the auction owner?",
         text:
-          "Auction owner is a person who is beneficiary of the auction. He/she is responsable of a items delivery or quality."
+          "Auction owner is a person who is beneficiary of the auction. He/she is responsible for a items delivery or quality."
       },
       textCh: {
         title: "Sorry, no translation",
@@ -148,7 +148,8 @@ export const  faqText = [
       textEng: {
         title: "When a auction will start?",
         text:
-          "It will start after the first transaction to it." 
+          "It will start after the first minimal transaction to it. Minimal transaction depends on price set by owner. All other transactions " +
+          "will be refunded (minus minimum transaction fee) and will not start a auction." 
       },
       textCh: {
         title: "sorry no translation"

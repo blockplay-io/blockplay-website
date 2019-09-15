@@ -18,7 +18,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 
-const Auctions = ({
+const AuctionsFirst = ({
   lang,
   price,
   owner,
@@ -85,12 +85,12 @@ const Auctions = ({
 
         <Col xs={12} lg={6} className="text-xs-right text-right text-white">
           <h1 className="display-4 text-right text-white font-weight-bold font-italic mr-3">
-            KEY CHAIN AND CLIP
+            THE FIRST BURST AUCTION
           </h1>
           <div className="mr-3">
             <p className="lead font-italic">
-              Win the auction and get key chain and clip with Burst logo! The auction will start after it gets the first transaction and will last 24h. 
-              Both items made from metal. Free worldwide shipment. Before bidding please look to FAQ.
+              This is <strong>The First Burst Auction! </strong> 
+              It was created in 663607 Block and finished after 12h 2019/09/12. 
             </p>
           </div>
 
@@ -127,6 +127,10 @@ const Auctions = ({
                   </strong>
                 </div>
 
+                {/*<strong>
+                  {ownerName + " " + convertNumericIdToAddress(owner)}
+                </strong>{" "}*/}
+                {/* Here need on click convert address to numeric id or way araound */}
               </Button>
             </div>
 
@@ -152,7 +156,7 @@ const Auctions = ({
               >
                 <div>Time left until the auction will finish</div>
                 {!startTimer & !finished ? 
-                  "Auction timer will start after the first bid" : startTimer & !finished ?
+                  "Auction timer will start after the first bid" : startTimer ?
                 (
                   `${time} blocks or about ${Math.floor(
                     (time * 4) / 60
@@ -190,7 +194,7 @@ const Auctions = ({
                   }
                 />
               </Button>
-             
+              {/* <p>{unConf}</p> */}
             </div>
           </div>
         </Col>
@@ -199,4 +203,4 @@ const Auctions = ({
   );
 };
 
-export default Auctions;
+export default AuctionsFirst;

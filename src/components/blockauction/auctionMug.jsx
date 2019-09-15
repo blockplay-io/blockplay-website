@@ -5,18 +5,16 @@ import Marquee from "react-text-marquee";
 import { copyToClip } from "../../funcions/funcions";
 
 import { convertNumericIdToAddress, sumNQTStringToNumber } from "@burstjs/util";
-import keyChainSea from "./data/keyChainSeaResized.jpg";
-import keyChainHolding from "./data/keyChainHoldingResized.jpg";
-import keyChainParket from "./data/keyChainParketResized.jpg";
-import clip from "./data/clip.jpg";
-import clipBack from "./data/clipBack.jpg";
-import clipSide from "./data/clipSide.jpg";
+import puodukas from "./data/puodukas-min.jpg";
+
+
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Carousel from "react-bootstrap/Carousel";
+import Image from 'react-bootstrap/Image';
+
 
 const Auctions = ({
   lang,
@@ -38,7 +36,7 @@ const Auctions = ({
       fluid
       className="mbr-fonts-style  mbr-fullscreen"
       style={{
-        backgroundImage: `url(${keyChainSea})`,
+        backgroundImage: `url(${puodukas})`,
         backgroundSize: "cover"
       }}
     >
@@ -48,49 +46,17 @@ const Auctions = ({
       />
       <Row>
         <Col xs={12} lg={6}>
-          <Carousel style={{ maxWidth: 600 }}>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={keyChainHolding}
-                alt="First slide"
-              />
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={keyChainParket}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={keyChainSea}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={clipSide} alt="Clip Side" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={clip} alt="First slide" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={clipBack} alt="Clip Back" />
-            </Carousel.Item>
-          </Carousel>
+          <Image src={puodukas} thumbnail />
         </Col>
 
         <Col xs={12} lg={6} className="text-xs-right text-right text-white">
           <h1 className="display-4 text-right text-white font-weight-bold font-italic mr-3">
-            KEY CHAIN AND CLIP
+            UNIQUE CUSTOM MUG
           </h1>
           <div className="mr-3">
             <p className="lead font-italic">
-              Win the auction and get key chain and clip with Burst logo! The auction will start after it gets the first transaction and will last 24h. 
-              Both items made from metal. Free worldwide shipment. Before bidding please look to FAQ.
+              Win the auction and get unique custom mug with your name on it. In picture you can see my unique mug with skippers design and my nick: shefas.
+              Mug can be washed in a dishwasher. Free worldwide shipment. The auction will start after it gets the first transaction and will last 48h. Before bidding please look to FAQ.
             </p>
           </div>
 

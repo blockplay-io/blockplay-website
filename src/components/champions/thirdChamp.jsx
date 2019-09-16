@@ -24,7 +24,8 @@ const Champ = ({
   ownersList,
   lang,
   fun,
-  explorer
+  explorer,
+  name
 }) => {
   let atAddressString = convertNumericIdToAddress(atAddress);
   let defenderAddress = convertNumericIdToAddress(defending);
@@ -76,7 +77,7 @@ const Champ = ({
                   <div>卫冕冠军</div>
                 )}
                 <div>
-                  <strong>{defenderAddress}</strong> {/*  id="champ1" */}
+                  <strong>{name} {defenderAddress}</strong> {/*  id="champ1" */}
                 </div>
               </Button>
             

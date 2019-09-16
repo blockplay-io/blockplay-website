@@ -28,30 +28,36 @@ class AppFun extends Component {
       defender: {
         heavy: {
           heavy: "",
+          name: null,
+          smallests: "smallest",
           fighting: false,
           unConfTrans: [],
           ownersChain: []
         },
         cruis: {
           cruis: "",
+          name: null,
           fighting: false,
           unConfTrans: [],
           ownersChain: []
         },
         middle: {
           middle: "",
+          name: null,
           fighting: false,
           unConfTrans: [],
           ownersChain: []
         },
         welter: {
           welter: "",
+          name: null,
           fighting: false,
           unConfTrans: [],
           ownersChain: []
         },
         light: {
           light: "",
+          name: null,
           fighting: false,
           unConfTrans: [],
           ownersChain: []
@@ -179,9 +185,14 @@ class AppFun extends Component {
     const helper = new ContractHelper(value);
     const owner = helper.getVariableAsDecimal(1);
     let copyState = { ...this.state };
+    
     switch (value.at) {
       case this.ats[0]:
         copyState.defender.heavy.heavy = owner;
+        this.api.account.getAccount(owner).then( 
+          result => result.name !== undefined ?
+            copyState.defender.heavy.name = result.name : copyState.defender.heavy.name = null
+       )
         var balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.heavy.fighting = true;
@@ -202,6 +213,10 @@ class AppFun extends Component {
         break;
       case this.ats[1]:
         copyState.defender.cruis.cruis = owner;
+        this.api.account.getAccount(owner).then( 
+          result => result.name !== undefined ?
+            copyState.defender.cruis.name = result.name : copyState.defender.cruis.name = null
+       )
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.cruis.fighting = true;
@@ -221,6 +236,10 @@ class AppFun extends Component {
         break;
       case this.ats[2]:
         copyState.defender.middle.middle = owner;
+        this.api.account.getAccount(owner).then( 
+          result => result.name !== undefined ?
+            copyState.defender.middle.name = result.name : copyState.defender.middle.name = null
+       )
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.middle.fighting = true;
@@ -240,6 +259,10 @@ class AppFun extends Component {
         break;
       case this.ats[3]:
         copyState.defender.welter.welter = owner;
+        this.api.account.getAccount(owner).then( 
+          result => result.name !== undefined ?
+            copyState.defender.welter.name = result.name : copyState.defender.welter.name = null
+       )
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.welter.fighting = true;
@@ -260,6 +283,10 @@ class AppFun extends Component {
         break;
       case this.ats[4]:
         copyState.defender.light.light = owner;
+        this.api.account.getAccount(owner).then( 
+          result => result.name !== undefined ?
+            copyState.defender.light.name = result.name : copyState.defender.light.name = null
+       )
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.light.fighting = true;
@@ -299,6 +326,7 @@ class AppFun extends Component {
         <Champ
           lang={this.props.lang}
           background={imgHeavy}
+          name={heavy.name}
           title={
             this.props.lang === "eng"
               ? "HEAVYWEIGHT (20'000)"
@@ -315,6 +343,7 @@ class AppFun extends Component {
         />
         <Champ
           lang={this.props.lang}
+          name={cruis.name}
           title={
             this.props.lang === "eng"
               ? "CRUISERWEIGHT (10'000)"
@@ -331,6 +360,7 @@ class AppFun extends Component {
         />
         <Champ
           lang={this.props.lang}
+          name={middle.name}
           background={imgMiddle}
           title={
             this.props.lang === "eng"
@@ -349,6 +379,7 @@ class AppFun extends Component {
 
         <Champ
           lang={this.props.lang}
+          name={welter.name}
           title={
             this.props.lang === "eng"
               ? "WELTERWEIGHT (2'000)"
@@ -365,6 +396,7 @@ class AppFun extends Component {
         />
         <Champ
           lang={this.props.lang}
+          name={light.name}
           background={imgLight}
           title={
             this.props.lang === "eng" ? "LIGHTWEIGHT (1'000)" : "轻量级 (1'000)"

@@ -154,6 +154,18 @@ export const  faqText = [
       textCh: {
         title: "sorry no translation"
       }
+    },
+    {
+      id: 14,
+      textEng: {
+        title: "What is a unconfirmed bid list?",
+        text:
+          "Then you do a transaction to the auction, it shows this transaction in an unconfirmed bid list. " +
+          "It is not confirmed or verified by blockchain. Then this transaction gots verification. " 
+      },
+      textCh: {
+        title: "sorry no translation"
+      }
     }
   ];
   

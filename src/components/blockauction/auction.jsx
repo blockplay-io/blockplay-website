@@ -179,7 +179,7 @@ const Auctions = ({
                     finished ? "Auction finished":
                     unConfTrans.length === 0
                       ? "Waiting for bid"
-                      : `Biders list: ${unConfTrans.map(
+                      : `Unconfirmed bid list: ${unConfTrans.map(
                           t =>
                             t.senderRS.substring(21) +
                             " (" +

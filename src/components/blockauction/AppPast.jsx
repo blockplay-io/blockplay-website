@@ -4,6 +4,7 @@ import { sumNQTStringToNumber } from "@burstjs/util";
 import First from "./first";
 import Second from "./second";
 import AuctionsFirst from "./auctionFirst";
+import AuctionsSecond from "./auctionSecond";
 
 
 class AuctionPast extends Component {
@@ -24,6 +25,18 @@ class AuctionPast extends Component {
         unConfTrans: [],
         time: 180,
         timeLeft: 180,
+        error: false
+      },
+      second: {
+        finished: false,
+        active: false,
+        startTimer: false,
+        price: 400,
+        owner: "399474066476911189",
+        name: null,
+        unConfTrans: [],
+        time: 360,
+        timeLeft: 360,
         error: false
       }
     };
@@ -254,6 +267,19 @@ class AuctionPast extends Component {
           unConfTrans={this.state.first.unConfTrans}
           explorer={this.props.explorer}
           at={this.props.atsAuction[0]}
+        />
+        <AuctionsSecond
+          active={this.state.second.active}
+          startTimer={this.state.second.startTimer}
+          finished={this.state.second.finished}
+          time={this.state.second.timeLeft}
+          lang={this.props.lang}
+          price={this.state.second.price}
+          owner={this.state.second.owner}
+          name={this.state.second.name}
+          unConfTrans={this.state.second.unConfTrans}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[1]}
         />
         <Second lang={this.props.lang} />
       </React.Fragment>

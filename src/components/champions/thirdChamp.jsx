@@ -25,10 +25,14 @@ const Champ = ({
   lang,
   fun,
   explorer,
-  name
+  name,
+  smallestName,
+  smallests
 }) => {
   let atAddressString = convertNumericIdToAddress(atAddress);
   let defenderAddress = convertNumericIdToAddress(defending);
+  const smallestAddress = smallests ? convertNumericIdToAddress(smallests[0]): null
+  
   return (
     <React.Fragment>
       <Container
@@ -40,6 +44,7 @@ const Champ = ({
           backgroundSize: "cover"
         }}
       >
+        
         <div className="mbr-overlay" style={{opacity: "0.5", backgroundColor: "rgb(15, 0, 0)"}}></div>
         <Container>
           <h3 className="display-5 text-light ml-5">{title}{fun && " FUN"}</h3>
@@ -80,7 +85,19 @@ const Champ = ({
                   <strong>{name} {defenderAddress}</strong> {/*  id="champ1" */}
                 </div>
               </Button>
-            
+
+              { smallests ? <Button
+                className="btn-lg btn-info text-left text-white btn-block"
+                target="_blank"
+                
+                rel="noopener noreferrer"
+                href={explorer + smallests[0]}
+              >
+               
+                  <div>Lucky winner </div>
+                 <strong>{smallestName} {smallestAddress} {smallests[1] ? smallests[1] + " BURST": null } </strong>
+                
+              </Button>: null }
 
             
               <Button

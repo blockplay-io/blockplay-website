@@ -368,6 +368,7 @@ class App extends Component {
        <Event fun={false} />
         <Champ
           lang={this.props.lang}
+          event={true}
           background={imgHeavy}
           name={heavy.name}
           title={

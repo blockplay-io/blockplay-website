@@ -27,7 +27,8 @@ const Champ = ({
   explorer,
   name,
   smallestName,
-  smallests
+  smallests,
+  event
 }) => {
   let atAddressString = convertNumericIdToAddress(atAddress);
   let defenderAddress = convertNumericIdToAddress(defending);
@@ -60,13 +61,13 @@ const Champ = ({
                   <div>Lucky winner </div>
                  <strong>{smallestName} {smallestAddress} {smallests[1] ? smallests[1] + " BURST": null } </strong>
                 
-              </Button>: 
+              </Button> : event ?
               <Button
                 className="btn-lg btn-info text-left text-white btn-block"
               >
                 <div>Lucky Winner</div>
                 No particepants in the event
-              </Button>
+              </Button> : null
             }
             <div onClick={() => copyToClip(atAddressString)}>
               <div

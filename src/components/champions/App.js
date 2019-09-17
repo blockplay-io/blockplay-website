@@ -30,6 +30,8 @@ class App extends Component {
         heavy: {
           heavy: "",
           name: null,
+          smallestName: null,
+          smallests: [],
           fighting: false,
           unConfTrans: [],
           ownersChain: []
@@ -206,6 +208,47 @@ class App extends Component {
               (copyState.defender.heavy.unConfTrans =
                 result.unconfirmedTransactions)
           );
+
+          this.api.account
+          .getAccountTransactions(this.ats[0])
+          .then(t => {
+            const filtered = t.transactions.filter(
+              a =>
+                a.type === 22 &&
+                a.amountNQT !== "0" &&
+                a.hasOwnProperty("attachment") &&
+                a.attachment.message ===
+                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
+            )
+            if (filtered.lenght === 0 || filtered.lenght === undefined ){
+              if (this._isMounted) {
+                this.setState({ copyState });
+               
+              }   
+              return;  
+            }
+            const min = filtered.reduce((prev, current) =>
+              Number(prev.amountNQT) < Number(current.amountNQT)
+                ? prev
+                : current
+            ); //finds biggest bid
+            
+            copyState.defender.heavy.smallests = [];
+            copyState.defender.heavy.smallests.push(
+              min.recipient,
+              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
+            ); //30 blockchain fee + 1% fee
+          })
+          .then(() =>
+            this.api.account
+              .getAccount(copyState.defender.heavy.smallests[0])
+              .then(result => {
+                if (result.name !== undefined) {
+                  copyState.defender.heavy.smallestName = result.name;
+                }
+              })
+          );
+
         if (this._isMounted) {
           this.setState({ copyState });
         }

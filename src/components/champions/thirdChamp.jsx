@@ -49,6 +49,25 @@ const Champ = ({
         <Container>
           <h3 className="display-5 text-light ml-5">{title}{fun && " FUN"}</h3>
           <Container>
+          { smallests ? <Button
+                className="btn-lg btn-info text-left text-white btn-block"
+                target="_blank"
+                
+                rel="noopener noreferrer"
+                href={explorer + smallests[0]}
+              >
+               
+                  <div>Lucky winner </div>
+                 <strong>{smallestName} {smallestAddress} {smallests[1] ? smallests[1] + " BURST": null } </strong>
+                
+              </Button>: 
+              <Button
+                className="btn-lg btn-info text-left text-white btn-block"
+              >
+                <div>Lucky Winner</div>
+                No particepants in the event
+              </Button>
+            }
             <div onClick={() => copyToClip(atAddressString)}>
               <div
                 className="btn-group btn-block"
@@ -86,18 +105,7 @@ const Champ = ({
                 </div>
               </Button>
 
-              { smallests ? <Button
-                className="btn-lg btn-info text-left text-white btn-block"
-                target="_blank"
-                
-                rel="noopener noreferrer"
-                href={explorer + smallests[0]}
-              >
-               
-                  <div>Lucky winner </div>
-                 <strong>{smallestName} {smallestAddress} {smallests[1] ? smallests[1] + " BURST": null } </strong>
-                
-              </Button>: null }
+              
 
             
               <Button

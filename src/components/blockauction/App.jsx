@@ -259,19 +259,6 @@ class Auction extends Component {
     return (
       <React.Fragment>
         <First lang={this.props.lang} />
-        <AuctionsMug
-          active={this.state.first.active}
-          startTimer={this.state.first.startTimer}
-          finished={this.state.first.finished}
-          time={this.state.first.timeLeft}
-          lang={this.props.lang}
-          price={this.state.first.price}
-          owner={this.state.first.owner}
-          name={this.state.first.name}
-          unConfTrans={this.state.first.unConfTrans}
-          explorer={this.props.explorer}
-          at={this.props.atsAuction[0]}
-        /> 
         <Auctions
           active={this.state.second.active}
           startTimer={this.state.second.startTimer}
@@ -286,6 +273,20 @@ class Auction extends Component {
           at={this.props.atsAuction[1]}
         />
         
+        <AuctionsMug
+          active={this.state.first.active}
+          startTimer={this.state.first.startTimer}
+          finished={this.state.first.finished}
+          time={this.state.first.timeLeft}
+          lang={this.props.lang}
+          price={this.state.first.price}
+          owner={this.state.first.owner}
+          name={this.state.first.name}
+          unConfTrans={this.state.first.unConfTrans}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[0]}
+        /> 
+  
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

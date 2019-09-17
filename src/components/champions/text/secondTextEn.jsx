@@ -44,7 +44,7 @@ const SecondTextEn = () => {
         >
           your own wallet
         </a>
-        . Choose one className and challenge the current champion with BURST.
+        . Choose one class and challenge the current champion with BURST.
         The higher your challenge, the higher your chances to become the new
         champion (chances are given by your challenge divided by the sum of
         challenge and weight). Taking the lightweight className (1'000) as an

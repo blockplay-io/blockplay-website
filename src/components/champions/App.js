@@ -5,6 +5,7 @@ import { sumNQTStringToNumber } from "@burstjs/util";
 import First from "./first";
 import Second from "./second";
 import Champ from "./thirdChamp";
+import Event from "./eventLucky";
 
 import imgHeavy from "./data/heavy-d.jpg";
 import imgMiddle from "./data/middle-d.jpg";
@@ -321,7 +322,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <First lang={this.props.lang} fun={this.props.fun} />
-        <Second lang={this.props.lang} />
+       <Event fun={false} />
         <Champ
           lang={this.props.lang}
           background={imgHeavy}
@@ -409,6 +410,7 @@ class App extends Component {
           fun={this.props.fun}
           explorer={this.props.explorer}
         />
+         <Second lang={this.props.lang} />
       </React.Fragment>
     );
   }

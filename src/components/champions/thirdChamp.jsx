@@ -50,6 +50,7 @@ const Champ = ({
         <Container>
           <h3 className="display-5 text-light ml-5">{title}{fun && " FUN"}</h3>
           <Container>
+         
           { smallests ? <Button
                 className="btn-lg btn-info text-left text-white btn-block"
                 target="_blank"
@@ -66,7 +67,8 @@ const Champ = ({
                 className="btn-lg btn-info text-left text-white btn-block"
               >
                 <div>Lucky Winner</div>
-                No particepants in the event
+                No lucky winner yet
+                
               </Button> : null
             }
             <div onClick={() => copyToClip(atAddressString)}>
@@ -136,7 +138,7 @@ const Champ = ({
                               (sumNQTStringToNumber(t.amountNQT) /
                                 (weight + sumNQTStringToNumber(t.amountNQT))) *
                                 100
-                            )} % Chanse) `
+                            )} % chance) `
                         )}`}{" "}
                       </span>
                     )

@@ -220,19 +220,14 @@ class App extends Component {
                 a.attachment.message ===
                   "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
             )
-            if (filtered.lenght === 0 || filtered.lenght === undefined ){
-              if (this._isMounted) {
-                this.setState({ copyState });
-               
-              }   
-              return;  
-            }
+            
+           
             const min = filtered.reduce((prev, current) =>
               Number(prev.amountNQT) < Number(current.amountNQT)
                 ? prev
                 : current
             ); //finds biggest bid
-            
+         
             copyState.defender.heavy.smallests = [];
             copyState.defender.heavy.smallests.push(
               min.recipient,
@@ -370,6 +365,8 @@ class App extends Component {
           lang={this.props.lang}
           event={true}
           background={imgHeavy}
+          smallestName={heavy.smallestName}
+          smallests={heavy.smallests}
           name={heavy.name}
           title={
             this.props.lang === "eng"

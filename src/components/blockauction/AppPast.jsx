@@ -491,7 +491,7 @@ class AuctionPast extends Component {
           name={this.state.fourth.name}
           unConfTrans={this.state.fourth.unConfTrans}
           explorer={this.props.explorer}
-          at={this.props.atsAuction[1]}
+          at={this.props.atsAuction[3]}
         />
         <Second lang={this.props.lang} />
       </React.Fragment>

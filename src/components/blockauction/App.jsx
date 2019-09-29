@@ -18,7 +18,7 @@ class Auction extends Component {
         finished: false,
         active: false,
         startTimer: false,
-        price: 400,
+        price: 500,
         owner: "399474066476911189",
         name: null,
         unConfTrans: [],

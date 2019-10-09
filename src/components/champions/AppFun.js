@@ -5,7 +5,7 @@ import { sumNQTStringToNumber } from "@burstjs/util";
 import First from "./first";
 import Second from "./second";
 import Champ from "./thirdChamp";
-import Event from "./eventLucky";
+
 
 import imgHeavy from "./data/heavy-d.jpg";
 import imgMiddle from "./data/middle-d.jpg";
@@ -30,8 +30,6 @@ class AppFun extends Component {
         heavy: {
           heavy: "",
           name: null,
-          smallestName: null,
-          smallests: [],
           fighting: false,
           unConfTrans: [],
           ownersChain: []
@@ -39,16 +37,12 @@ class AppFun extends Component {
         cruis: {
           cruis: "",
           name: null,
-          smallestName: null,
-          smallests: [],
           fighting: false,
           unConfTrans: [],
           ownersChain: []
         },
         middle: {
           middle: "",
-          smallestName: null,
-          smallests: [],
           name: null,
           fighting: false,
           unConfTrans: [],
@@ -56,8 +50,6 @@ class AppFun extends Component {
         },
         welter: {
           welter: "",
-          smallestName: null,
-          smallests: [],
           name: null,
           fighting: false,
           unConfTrans: [],
@@ -65,8 +57,6 @@ class AppFun extends Component {
         },
         light: {
           light: "",
-          smallestName: null,
-          smallests: [],
           name: null,
           fighting: false,
           unConfTrans: [],
@@ -219,39 +209,7 @@ class AppFun extends Component {
               (copyState.defender.heavy.unConfTrans =
                 result.unconfirmedTransactions)
           );
-        this.api.account
-          .getAccountTransactions(this.ats[0])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            );
-
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-
-            copyState.defender.heavy.smallests = [];
-            copyState.defender.heavy.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.heavy.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.heavy.smallestName = result.name;
-                }
-              })
-          );
+        
 
         if (this._isMounted) {
           this.setState({ copyState });
@@ -280,39 +238,7 @@ class AppFun extends Component {
               (copyState.defender.cruis.unConfTrans =
                 result.unconfirmedTransactions)
           );
-        this.api.account
-          .getAccountTransactions(this.ats[1])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            );
-
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-
-            copyState.defender.cruis.smallests = [];
-            copyState.defender.cruis.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.cruis.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.cruis.smallestName = result.name;
-                }
-              })
-          );
+        
 
         if (this._isMounted) {
           this.setState({ copyState });
@@ -340,39 +266,7 @@ class AppFun extends Component {
               (copyState.defender.middle.unConfTrans =
                 result.unconfirmedTransactions)
           );
-          this.api.account
-          .getAccountTransactions(this.ats[2])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            );
-
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-
-            copyState.defender.middle.smallests = [];
-            copyState.defender.middle.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.middle.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.middle.smallestName = result.name;
-                }
-              })
-          );
+          
 
           
         if (this._isMounted) {
@@ -403,40 +297,7 @@ class AppFun extends Component {
                 result.unconfirmedTransactions)
           );
 
-          this.api.account
-          .getAccountTransactions(this.ats[3])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            );
-
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-
-            copyState.defender.welter.smallests = [];
-            copyState.defender.welter.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.welter.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.welter.smallestName = result.name;
-                }
-              })
-          );
-
+          
         if (this._isMounted) {
           this.setState({ copyState });
         }
@@ -463,40 +324,7 @@ class AppFun extends Component {
               (copyState.defender.light.unConfTrans =
                 result.unconfirmedTransactions)
           );
-          this.api.account
-          .getAccountTransactions(this.ats[4])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            );
-
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-
-            copyState.defender.light.smallests = [];
-            copyState.defender.light.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.light.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.light.smallestName = result.name;
-                }
-              })
-          );
-
+          
 
         if (this._isMounted) {
           this.setState({ copyState });
@@ -520,13 +348,11 @@ class AppFun extends Component {
     return (
       <React.Fragment>
         <First lang={this.props.lang} fun={this.props.fun} />
-        <Event fun={true} />
+        <Second lang={this.props.lang} />
         <Champ
           lang={this.props.lang}
           background={imgHeavy}
           name={heavy.name}
-          smallestName={heavy.smallestName}
-          smallests={heavy.smallests}
           title={
             this.props.lang === "eng"
               ? "HEAVYWEIGHT (20'000)"
@@ -544,8 +370,6 @@ class AppFun extends Component {
         <Champ
           lang={this.props.lang}
           name={cruis.name}
-          smallestName={cruis.smallestName}
-          smallests={cruis.smallests}
           title={
             this.props.lang === "eng"
               ? "CRUISERWEIGHT (10'000)"
@@ -563,8 +387,6 @@ class AppFun extends Component {
         <Champ
           lang={this.props.lang}
           name={middle.name}
-          smallestName={middle.smallestName}
-          smallests={middle.smallests}
           background={imgMiddle}
           title={
             this.props.lang === "eng"
@@ -584,8 +406,6 @@ class AppFun extends Component {
         <Champ
           lang={this.props.lang}
           name={welter.name}
-          smallestName={welter.smallestName}
-          smallests={welter.smallests}
           title={
             this.props.lang === "eng"
               ? "WELTERWEIGHT (2'000)"
@@ -603,8 +423,6 @@ class AppFun extends Component {
         <Champ
           lang={this.props.lang}
           name={light.name}
-          smallestName={light.smallestName}
-          smallests={light.smallests}
           background={imgLight}
           title={
             this.props.lang === "eng" ? "LIGHTWEIGHT (1'000)" : "轻量级 (1'000)"
@@ -618,7 +436,7 @@ class AppFun extends Component {
           fun={this.props.fun}
           explorer={this.props.explorer}
         />
-        <Second lang={this.props.lang} />
+      
       </React.Fragment>
     );
   }

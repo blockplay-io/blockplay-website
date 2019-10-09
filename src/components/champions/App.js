@@ -5,7 +5,7 @@ import { sumNQTStringToNumber } from "@burstjs/util";
 import First from "./first";
 import Second from "./second";
 import Champ from "./thirdChamp";
-import Event from "./eventLucky";
+
 
 import imgHeavy from "./data/heavy-d.jpg";
 import imgMiddle from "./data/middle-d.jpg";
@@ -30,8 +30,6 @@ class App extends Component {
         heavy: {
           heavy: "",
           name: null,
-          smallestName: null,
-          smallests: [],
           fighting: false,
           unConfTrans: [],
           ownersChain: []
@@ -70,7 +68,6 @@ class App extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-
     this.atsUpdate();
     this.updateOwnersChain();
     this.timerFighting();
@@ -209,41 +206,6 @@ class App extends Component {
                 result.unconfirmedTransactions)
           );
 
-          this.api.account
-          .getAccountTransactions(this.ats[0])
-          .then(t => {
-            const filtered = t.transactions.filter(
-              a =>
-                a.type === 22 &&
-                a.amountNQT !== "0" &&
-                a.hasOwnProperty("attachment") &&
-                a.attachment.message ===
-                  "596f752061726520746865206e6577206368616d70696f6e2100000000000000"
-            )
-            
-           
-            const min = filtered.reduce((prev, current) =>
-              Number(prev.amountNQT) < Number(current.amountNQT)
-                ? prev
-                : current
-            ); //finds biggest bid
-         
-            copyState.defender.heavy.smallests = [];
-            copyState.defender.heavy.smallests.push(
-              min.recipient,
-              ((sumNQTStringToNumber(min.amountNQT) + 30) * 100) / 99
-            ); //30 blockchain fee + 1% fee
-          })
-          .then(() =>
-            this.api.account
-              .getAccount(copyState.defender.heavy.smallests[0])
-              .then(result => {
-                if (result.name !== undefined) {
-                  copyState.defender.heavy.smallestName = result.name;
-                }
-              })
-          );
-
         if (this._isMounted) {
           this.setState({ copyState });
         }
@@ -360,13 +322,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <First lang={this.props.lang} fun={this.props.fun} />
-       <Event fun={false} />
+        <Second lang={this.props.lang} />
         <Champ
           lang={this.props.lang}
-          event={true}
-          background={imgHeavy}
-          smallestName={heavy.smallestName}
-          smallests={heavy.smallests}
+          background={imgHeavy} 
           name={heavy.name}
           title={
             this.props.lang === "eng"
@@ -390,6 +349,7 @@ class App extends Component {
               ? "CRUISERWEIGHT (10'000)"
               : "次重量级 (10'000)"
           }
+          
           atAddress={this.ats[1]}
           defending={cruis.cruis}
           fighting={cruis.fighting}
@@ -421,6 +381,8 @@ class App extends Component {
         <Champ
           lang={this.props.lang}
           name={welter.name}
+         
+          name={light.name}
           title={
             this.props.lang === "eng"
               ? "WELTERWEIGHT (2'000)"
@@ -437,7 +399,6 @@ class App extends Component {
         />
         <Champ
           lang={this.props.lang}
-          name={light.name}
           background={imgLight}
           title={
             this.props.lang === "eng" ? "LIGHTWEIGHT (1'000)" : "轻量级 (1'000)"
@@ -451,7 +412,7 @@ class App extends Component {
           fun={this.props.fun}
           explorer={this.props.explorer}
         />
-         <Second lang={this.props.lang} />
+        
       </React.Fragment>
     );
   }

@@ -505,19 +505,7 @@ class AuctionPast extends Component {
           explorer={this.props.explorer}
           at={this.props.atsAuction[3]}
         />
-          <AuctionsSecond
-          active={this.state.five.active}
-          startTimer={this.state.five.startTimer}
-          finished={this.state.five.finished}
-          time={this.state.five.timeLeft}
-          lang={this.props.lang}
-          price={this.state.five.price}
-          owner={this.state.five.owner}
-          name={this.state.five.name}
-          unConfTrans={this.state.five.unConfTrans}
-          explorer={this.props.explorer}
-          at={this.props.atsAuction[4]}
-        />
+          
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

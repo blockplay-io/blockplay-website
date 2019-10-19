@@ -28,7 +28,8 @@ import {
   NODEFUN,
   EXPLORER,
   EXPLORERFUN,
-  pastAuctionWinners
+  pastAuctionWinners,
+  NODE
 } from "./constants/const"; 
 
 
@@ -38,7 +39,7 @@ import Footer from "./components/footer";
 import Kohinoor from "./components/kohinoor/App";
 
 import { ApiSettings } from "@burstjs/core";
-import { NODE } from "./components/kohinoor/constants/const";
+
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";

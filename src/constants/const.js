@@ -55,7 +55,7 @@ export const pastAuctionWinners = [
 export const EXPLORERFUN = "https://testnet.explorer.burstcoin.network/?action=account&account=";
 export const EXPLORER = "https://explorer.burstcoin.network/?action=account&account=";
 
-export const NODE = "http://localhost:8125";
+export const NODE = "http://127.0.0.1:8125";
 //export const NODE = "http://testnet.getburst.net:6876";
 export const NODEFUN = "https://test-burst.megash.it:443";
 //export const NODE = "https://wallet.burstcoin.ro:443";

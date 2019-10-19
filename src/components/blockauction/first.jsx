@@ -1,5 +1,5 @@
 import React from "react";
-import mainPicture from "./data/hammer.jpg";
+import mainPicture from "./pictures/hammer.jpg";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

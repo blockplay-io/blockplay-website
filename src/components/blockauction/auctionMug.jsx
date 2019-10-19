@@ -5,7 +5,7 @@ import Marquee from "react-text-marquee";
 import { copyToClip } from "../../funcions/funcions";
 
 import { convertNumericIdToAddress, sumNQTStringToNumber } from "@burstjs/util";
-import puodukas from "./data/puodukas-min.jpg";
+import puodukas from "./pictures/puodukas-min.jpg";
 
 
 

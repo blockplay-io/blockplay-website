@@ -5,12 +5,12 @@ import Marquee from "react-text-marquee";
 import { copyToClip } from "../../funcions/funcions";
 
 import { convertNumericIdToAddress, sumNQTStringToNumber } from "@burstjs/util";
-import keyChainSea from "./data/keyChainSeaResized.jpg";
-import keyChainHolding from "./data/keyChainHoldingResized.jpg";
-import keyChainParket from "./data/keyChainParketResized.jpg";
-import clip from "./data/clip.jpg";
-import clipBack from "./data/clipBack.jpg";
-import clipSide from "./data/clipSide.jpg";
+import keyChainSea from "./pictures/keyChainSeaResized.jpg";
+import keyChainHolding from "./pictures/keyChainHoldingResized.jpg";
+import keyChainParket from "./pictures/keyChainParketResized.jpg";
+import clip from "./pictures/clip.jpg";
+import clipBack from "./pictures/clipBack.jpg";
+import clipSide from "./pictures/clipSide.jpg";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

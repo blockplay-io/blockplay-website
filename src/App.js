@@ -28,7 +28,7 @@ import {
   NODEFUN,
   EXPLORER,
   EXPLORERFUN,
-  atsAuctionPast
+  pastAuctionWinners
 } from "./constants/const"; 
 
 
@@ -188,7 +188,7 @@ class App extends Component {
               path="/auction"
               render={props => (
                 <Auction
-                  apiSettings={apiSettings}
+                  apiSettings={apiSettings} //apiSettingsFun for testing
                   atsAuction={atsAuction}
                   
                   lang={lang}
@@ -201,8 +201,8 @@ class App extends Component {
               path="/pastauctions"
               render={props => (
                 <AuctionPast
-                  apiSettings={apiSettings}
-                  atsAuction={atsAuctionPast}
+                  apiSettings={apiSettings} 
+                  atsAuction={pastAuctionWinners}
                   
                   lang={lang}
                   explorer={EXPLORER}
@@ -219,31 +219,3 @@ class App extends Component {
 }
 
 export default App;
-
-//<BlockPlay lang={lang}/>
-//<Kohinoor lang={lang} />
-//<Champions apiSettings={apiSettings} ats={atsX} fun={fun} lang={lang} />
-//<NavBar onChinaClick={this.hendleChinaClick} onEnglishClick={this.hendleEnglishClick}/>
-// <Footer lang={lang} />
-
-/* <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
-
-        <hr />
-
-        <Route exact path="/" component={BlockPlay} />
-        <Route path="/about" component={Kohinoor} />
-        <Route path="/topics" component={Champions} />
-      </div>
-    </Router>*/

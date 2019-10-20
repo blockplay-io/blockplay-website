@@ -90,7 +90,7 @@ class Auction extends Component {
               let above = [];
               above = result.transactions.reduce((total, amount) => {
                 if (
-                  (sumNQTStringToNumber(amount.amountNQT) >= copyState.price) &
+                  (sumNQTStringToNumber(amount.amountNQT) >= 500) &
                   (amount.type === 0)
                 ) {
                   total.push({
@@ -174,7 +174,7 @@ class Auction extends Component {
               let above = [];
               above = result.transactions.reduce((total, amount) => {
                 if (
-                  (sumNQTStringToNumber(amount.amountNQT) >= copyState.price) &
+                  (sumNQTStringToNumber(amount.amountNQT) >= 1000) &
                   (amount.type === 0)
                 ) {
                   total.push({

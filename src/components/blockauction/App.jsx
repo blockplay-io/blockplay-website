@@ -27,11 +27,11 @@ class Auction extends Component {
         error: false
       },
       second: {
-        finished: false,
+        finished: true,
         active: false,
         startTimer: false,
-        price: 1000,
-        owner: "399474066476911189",
+        price: 1005,
+        owner: "102196302573724597",
         name: null,
         unConfTrans: [],
         time: 360,
@@ -83,6 +83,21 @@ class Auction extends Component {
 
     switch (value.at) {
       case this.ats[0]: //I left this for easy ading more auctions
+      this.api.account //looks for unconf trans, if transaction >== to price, sets state active: true
+          .getUnconfirmedAccountTransactions(this.ats[0])
+          .then(result => {
+            let copyState = { ...this.state.second };
+            copyState.unConfTrans = result.unconfirmedTransactions;
+            let obove22 = result.unconfirmedTransactions.some(
+              a => sumNQTStringToNumber(a.amountNQT) >= 5
+            );
+            if (obove22 & this._isMounted & !copyState.finished) {
+              copyState.startTimer = true;
+            }
+            if (this._isMounted) {
+              this.setState({ second: copyState });
+            }
+          });
         if (!this.state.first.finished) {
           this.api.account.getAccountTransactions(this.ats[0]).then(result => {
             let copyState = { ...this.state.first };
@@ -90,7 +105,7 @@ class Auction extends Component {
               let above = [];
               above = result.transactions.reduce((total, amount) => {
                 if (
-                  (sumNQTStringToNumber(amount.amountNQT) >= 500) &
+                  (sumNQTStringToNumber(amount.amountNQT) >= 22) &
                   (amount.type === 0)
                 ) {
                   total.push({
@@ -157,7 +172,7 @@ class Auction extends Component {
             let copyState = { ...this.state.second };
             copyState.unConfTrans = result.unconfirmedTransactions;
             let obove22 = result.unconfirmedTransactions.some(
-              a => sumNQTStringToNumber(a.amountNQT) >= copyState.price
+              a => sumNQTStringToNumber(a.amountNQT) >= 5
             );
             if (obove22 & this._isMounted & !copyState.finished) {
               copyState.startTimer = true;
@@ -174,7 +189,7 @@ class Auction extends Component {
               let above = [];
               above = result.transactions.reduce((total, amount) => {
                 if (
-                  (sumNQTStringToNumber(amount.amountNQT) >= 1000) &
+                  (sumNQTStringToNumber(amount.amountNQT) >= copyState.price) &
                   (amount.type === 0)
                 ) {
                   total.push({
@@ -231,7 +246,7 @@ class Auction extends Component {
           if (this._isMounted) {
             this.setState({ second: copyState });
           }
-        });
+        }); 
 
         break;
       default:

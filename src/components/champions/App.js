@@ -6,7 +6,6 @@ import First from "./first";
 import Second from "./second";
 import Champ from "./thirdChamp";
 
-
 import imgHeavy from "./data/heavy-d.jpg";
 import imgMiddle from "./data/middle-d.jpg";
 import imgLight from "./data/light-e.jpg";
@@ -136,7 +135,7 @@ class App extends Component {
     var items = Object.keys(dict).map(function(key) {
       return [key, dict[key]];
     });
-    
+
     // Sort the array based on the second element
     items.sort(function(first, second) {
       return second[1] - first[1];
@@ -188,10 +187,13 @@ class App extends Component {
     switch (value.at) {
       case this.ats[0]:
         copyState.defender.heavy.heavy = owner;
-        this.api.account.getAccount(owner).then( 
-          result => result.name !== undefined ?
-            copyState.defender.heavy.name = result.name : copyState.defender.heavy.name = null
-       )
+        this.api.account
+          .getAccount(owner)
+          .then(result =>
+            result.name !== undefined
+              ? (copyState.defender.heavy.name = result.name)
+              : (copyState.defender.heavy.name = null)
+          );
         var balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.heavy.fighting = true;
@@ -213,10 +215,13 @@ class App extends Component {
         break;
       case this.ats[1]:
         copyState.defender.cruis.cruis = owner;
-        this.api.account.getAccount(owner).then( 
-          result => result.name !== undefined ?
-            copyState.defender.cruis.name = result.name : copyState.defender.cruis.name = null
-       )
+        this.api.account
+          .getAccount(owner)
+          .then(result =>
+            result.name !== undefined
+              ? (copyState.defender.cruis.name = result.name)
+              : (copyState.defender.cruis.name = null)
+          );
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.cruis.fighting = true;
@@ -236,10 +241,13 @@ class App extends Component {
         break;
       case this.ats[2]:
         copyState.defender.middle.middle = owner;
-        this.api.account.getAccount(owner).then( 
-          result => result.name !== undefined ?
-            copyState.defender.middle.name = result.name : copyState.defender.middle.name = null
-       )
+        this.api.account
+          .getAccount(owner)
+          .then(result =>
+            result.name !== undefined
+              ? (copyState.defender.middle.name = result.name)
+              : (copyState.defender.middle.name = null)
+          );
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.middle.fighting = true;
@@ -259,10 +267,13 @@ class App extends Component {
         break;
       case this.ats[3]:
         copyState.defender.welter.welter = owner;
-        this.api.account.getAccount(owner).then( 
-          result => result.name !== undefined ?
-            copyState.defender.welter.name = result.name : copyState.defender.welter.name = null
-       )
+        this.api.account
+          .getAccount(owner)
+          .then(result =>
+            result.name !== undefined
+              ? (copyState.defender.welter.name = result.name)
+              : (copyState.defender.welter.name = null)
+          );
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.welter.fighting = true;
@@ -283,10 +294,13 @@ class App extends Component {
         break;
       case this.ats[4]:
         copyState.defender.light.light = owner;
-        this.api.account.getAccount(owner).then( 
-          result => result.name !== undefined ?
-            copyState.defender.light.name = result.name : copyState.defender.light.name = null
-       )
+        this.api.account
+          .getAccount(owner)
+          .then(result =>
+            result.name !== undefined
+              ? (copyState.defender.light.name = result.name)
+              : (copyState.defender.light.name = null)
+          );
         balance = sumNQTStringToNumber(value.balanceNQT);
         if (balance > 30) {
           copyState.defender.light.fighting = true;
@@ -325,7 +339,7 @@ class App extends Component {
         <Second lang={this.props.lang} />
         <Champ
           lang={this.props.lang}
-          background={imgHeavy} 
+          background={imgHeavy}
           name={heavy.name}
           title={
             this.props.lang === "eng"
@@ -349,7 +363,6 @@ class App extends Component {
               ? "CRUISERWEIGHT (10'000)"
               : "次重量级 (10'000)"
           }
-          
           atAddress={this.ats[1]}
           defending={cruis.cruis}
           fighting={cruis.fighting}
@@ -381,8 +394,6 @@ class App extends Component {
         <Champ
           lang={this.props.lang}
           name={welter.name}
-         
-          name={light.name}
           title={
             this.props.lang === "eng"
               ? "WELTERWEIGHT (2'000)"
@@ -400,6 +411,7 @@ class App extends Component {
         <Champ
           lang={this.props.lang}
           background={imgLight}
+          name={light.name}
           title={
             this.props.lang === "eng" ? "LIGHTWEIGHT (1'000)" : "轻量级 (1'000)"
           }
@@ -412,7 +424,6 @@ class App extends Component {
           fun={this.props.fun}
           explorer={this.props.explorer}
         />
-        
       </React.Fragment>
     );
   }

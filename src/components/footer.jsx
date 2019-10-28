@@ -144,7 +144,7 @@ const Footer = ({ lang }) => {
                 Burstcoin.ist
               </a>
               <br />
-              <a
+              {/*<a
                 className="text-light"
                 href="https://slots.blockplay.io"
                 target="_blank"
@@ -153,7 +153,7 @@ const Footer = ({ lang }) => {
                 Slots
               </a>
               
-              <br />
+              <br />*/}
               <a
                 className="text-light"
                 href="https://forums.getburst.net/"

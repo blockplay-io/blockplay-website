@@ -133,13 +133,13 @@ class App extends Component {
                     Auction
                   </Button>
                 </Nav.Item>
-                {/*<Nav.Item>
+                <Nav.Item>
                   <Nav.Link href="https://slots.blockplay.io/" target="_blank">
                     <Button variant="info" size="sm">
                       Slots
                     </Button>
                   </Nav.Link>
-                </Nav.Item>*/}
+                </Nav.Item>
               </Nav>
             </Navbar.Collapse>
             <Navbar.Collapse className="justify-content-end">

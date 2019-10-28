@@ -27,11 +27,11 @@ class Auction extends Component {
         error: false
       },
       second: {
-        finished: true,
+        finished: false,
         active: false,
         startTimer: false,
-        price: 1005,
-        owner: "102196302573724597",
+        price: 1000,
+        owner: "399474066476911189",
         name: null,
         unConfTrans: [],
         time: 360,

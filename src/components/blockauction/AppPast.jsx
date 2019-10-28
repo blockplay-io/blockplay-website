@@ -5,6 +5,7 @@ import Second from "./second";
 import AuctionsFirst from "./auctionFirst";
 import AuctionsSecond from "./auctionSecond";
 import AuctionsMug from "./auctionMug";
+import AuctionCoin from "./auctionCoin";
 
 //This reuse auctions code, data "hardcoded" in constants, this only gets uptodate names
 
@@ -113,7 +114,16 @@ class AuctionPast extends Component {
           explorer={this.props.explorer}
           at={this.props.atsAuction[5].at}
         />
-
+        <AuctionCoin
+          active={false}
+          finished={true}
+          lang={this.props.lang}
+          price={this.props.atsAuction[6].price}
+          owner={this.props.atsAuction[6].owner}
+          name={this.state.names[6]}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[6].at}
+        />
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

@@ -5,6 +5,7 @@ import First from "./first";
 import Second from "./second";
 import Auctions from "./auction";
 import AuctionCoin from "./auctionCoin";
+import AuctionSticker from "./auctionSticker";
 
 class Auction extends Component {
   _isMounted = false;
@@ -36,6 +37,18 @@ class Auction extends Component {
         unConfTrans: [],
         time: 360,
         timeLeft: 360,
+        error: false
+      },
+      third: {
+        finished: false,
+        active: false,
+        startTimer: false,
+        price: 1500,
+        owner: "11569639109100550231",
+        name: null,
+        unConfTrans: [],
+        time: 2520,
+        timeLeft: 2520,
         error: false
       }
     };
@@ -249,6 +262,90 @@ class Auction extends Component {
         }); 
 
         break;
+        case this.ats[2]: //I left this for easy ading more auctions
+        this.api.account //looks for unconf trans, if transaction >== to price, sets state active: true
+          .getUnconfirmedAccountTransactions(this.ats[2])
+          .then(result => {
+            let copyState = { ...this.state.third };
+            copyState.unConfTrans = result.unconfirmedTransactions;
+            let obove22 = result.unconfirmedTransactions.some(
+              a => sumNQTStringToNumber(a.amountNQT) >= 5
+            );
+            if (obove22 & this._isMounted & !copyState.finished) {
+              copyState.startTimer = true;
+            }
+            if (this._isMounted) {
+              this.setState({ third: copyState });
+            }
+          });
+
+        if (!this.state.third.finished) {
+          let copyState = { ...this.state.third };
+          this.api.account.getAccountTransactions(this.ats[2]).then(result => {
+            if (result.transactions.length !== 0) {
+              let above = [];
+              above = result.transactions.reduce((total, amount) => {
+                if (
+                  (sumNQTStringToNumber(amount.amountNQT) >= copyState.price) &
+                  (amount.type === 0)
+                ) {
+                  total.push({
+                    height: amount.height,
+                    amount: amount.amountNQT,
+                    sender: amount.sender
+                  });
+                }
+                return total;
+              }, []);
+              //console.log("trans list", above400)
+
+              if (above.length !== 0) {
+                copyState.startTimer = true;
+                const max = above.reduce((prev, current) =>
+                  Number(prev.amount) > Number(current.amount) ? prev : current
+                ); //finds biggest bid
+
+                const auctionStartBlock = above.reduce((prev, current) =>
+                  prev.height < current.height ? prev : current
+                ); //finds smallest height
+
+                let price =
+                  sumNQTStringToNumber(max.amount) >= copyState.price
+                    ? sumNQTStringToNumber(max.amount)
+                    : copyState.price;
+                let blocksFromCreation =
+                  this.state.blockNow - auctionStartBlock.height;
+                copyState.timeLeft = copyState.time - blocksFromCreation;
+                if (copyState.timeLeft < 1) {
+                  copyState.finished = true;
+                  copyState.startTimer = false;
+                }
+                copyState.price = price;
+                if (sumNQTStringToNumber(max.amount) >= copyState.price) {
+                  copyState.owner = max.sender;
+                }
+              }
+              if (this._isMounted) {
+                this.setState({ third: copyState });
+              }
+            }
+          });
+        }
+
+        this.api.account.getAccount(this.state.third.owner).then(result => {
+          let copyState = { ...this.state.third };
+          if (result.hasOwnProperty("name")) {
+            copyState.name = result.name;
+          } else {
+            copyState.name = null;
+          }
+
+          if (this._isMounted) {
+            this.setState({ third: copyState });
+          }
+        }); 
+
+        break;
       default:
         console.log("No SC");
     }
@@ -288,6 +385,19 @@ class Auction extends Component {
           unConfTrans={this.state.second.unConfTrans}
           explorer={this.props.explorer}
           at={this.props.atsAuction[1]}
+        />
+         <AuctionSticker
+          active={this.state.third.active}
+          startTimer={this.state.third.startTimer}
+          finished={this.state.third.finished}
+          time={this.state.third.timeLeft}
+          lang={this.props.lang}
+          price={this.state.third.price}
+          owner={this.state.third.owner}
+          name={this.state.third.name}
+          unConfTrans={this.state.third.unConfTrans}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[2]}
         />
         <Second lang={this.props.lang} />
       </React.Fragment>

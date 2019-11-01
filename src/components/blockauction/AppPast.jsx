@@ -124,6 +124,26 @@ class AuctionPast extends Component {
           explorer={this.props.explorer}
           at={this.props.atsAuction[6].at}
         />
+         <AuctionsSecond
+          active={false}
+          finished={true}
+          lang={this.props.lang}
+          price={this.props.atsAuction[7].price}
+          owner={this.props.atsAuction[7].owner}
+          name={this.state.names[7]}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[7].at}
+        />
+           <AuctionCoin
+          active={false}
+          finished={true}
+          lang={this.props.lang}
+          price={this.props.atsAuction[8].price}
+          owner={this.props.atsAuction[8].owner}
+          name={this.state.names[8]}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[8].at}
+        />
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

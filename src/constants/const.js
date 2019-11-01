@@ -13,7 +13,7 @@ export const creatorFun = "5219831338759933722" // champions fun SC creator
 
 
 //Auction constants
-export const atsAuction = ["1391511593998449720", "8913298276278405040", "6796834133887011616"]; //8036529174447150734 coin
+export const atsAuction = ["12755642606493738221", "12553641120222397902", "18288230987330115550"]; //8036529174447150734 coin
 //export const atsAuction = ["17163765293759263166", "2200060573233813583"]; //testing
 
 export const pastAuctionWinners = [
@@ -51,6 +51,16 @@ export const pastAuctionWinners = [
         at: "8036529174447150734",
         owner: "102196302573724597",
         price: 1005
+    },
+    {
+        at: "1391511593998449720",
+        owner: "4781758516073048339",
+        price: 500
+    },
+    {
+        at: "8913298276278405040",
+        owner: "4781758516073048339",
+        price: 1000
     }
 ]
 

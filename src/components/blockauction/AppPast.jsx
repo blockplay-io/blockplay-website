@@ -144,6 +144,16 @@ class AuctionPast extends Component {
           explorer={this.props.explorer}
           at={this.props.atsAuction[8].at}
         />
+         <AuctionsSecond
+          active={false}
+          finished={true}
+          lang={this.props.lang}
+          price={this.props.atsAuction[9].price}
+          owner={this.props.atsAuction[9].owner}
+          name={this.state.names[9]}
+          explorer={this.props.explorer}
+          at={this.props.atsAuction[9].at}
+        />
         <Second lang={this.props.lang} />
       </React.Fragment>
     );

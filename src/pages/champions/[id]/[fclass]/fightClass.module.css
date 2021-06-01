@@ -1,0 +1,219 @@
+/* First section */
+.firstSectionBanner {
+  height: 360px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.firstSectionBanner h1,
+.firstSectionBanner span {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.firstSectionBanner h1 {
+  margin-top: 4rem !important;
+  color: #ffffff;
+}
+
+.firstSectionBanner span {
+  color: var(--primary-error-color);
+}
+
+/* Second section */
+.championCard {
+  margin-top: -2.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.contentContainerRightSideVictoryIndicator {
+  margin-top: 7px;
+}
+
+.contentContainerRightSideVictoryIndicator p,
+.contentContainerRightSideVictoryIndicator svg {
+  color: var(--primary-color) !important;
+}
+
+/* Third section */
+.smartContractContainerDetailsLeftSide {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.smartContractContainerDetailsRightSide {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.challengeBtn {
+  color: white !important;
+  background: black !important;
+  text-transform: none !important;
+  width: 100%;
+  max-width: 290px;
+  font-size: 15.5px !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  border-radius: 8px !important;
+}
+
+/* Cards container */
+.cardContainer {
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 1.5rem !important;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em 3em;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardContainer h5 {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-text-color);
+  font-size: 26px !important;
+}
+
+.contentContainerLeftSide,
+.contentContainerRightSide {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contentContainerLeftSide svg {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contentContainerRightSide {
+  width: 90%;
+  padding-left: 1em;
+  padding-top: 5px;
+  align-items: flex-start;
+}
+
+.contentContainerRightSide p {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+.fighStatusTag {
+  font-weight: 500 !important;
+  padding: 0.5em 2em;
+  background: rgba(30, 57, 80, 0.03);
+  border-radius: 16px;
+  text-align: center;
+  color: rgba(30, 57, 80, 1) !important;
+  font-size: 14px !important;
+}
+
+.fighthingStatusTag {
+  color: rgba(255, 0, 0, 1) !important;
+  background: rgba(255, 0, 0, 0.03) !important;
+}
+
+/* Card item */
+.cardItemContainer {
+  width: 32%;
+  margin-bottom: 1.5em !important;
+  margin-right: 1.2em !important;
+}
+
+.cardItemContainer:last-child {
+  margin-right: 0 !important;
+}
+
+.goldTag span {
+  background-color: #fec84e;
+  background-image: linear-gradient(315deg, #fec84e 0%, #e7b461 90%);
+  color: #ffffff;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  border-radius: 4px;
+  font-weight: 500 !important;
+  margin-bottom: 0.2em !important;
+}
+
+.silverTag span {
+  background-color: #2f4353 !important;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 90%) !important;
+}
+
+.bronzeTag span {
+  background-color: #772f1a !important;
+  background-image: linear-gradient(315deg, #772f1a 0%, #f2a65a 90%) !important;
+}
+
+.lastCardContainer {
+  margin-bottom: 4rem !important;
+}
+
+/* Media queries */
+@media (max-width: 600px) {
+  .firstSectionBanner h1 {
+    margin-bottom: 10px;
+    margin-top: 5rem !important;
+  }
+
+  .cardContainer {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    border-radius: 0;
+  }
+
+  .contentContainerLeftSide {
+    display: none;
+  }
+
+  .contentContainerRightSide,
+  .fighStatusTag {
+    width: 100%;
+  }
+
+  .championCard {
+    margin-top: 0px !important;
+  }
+
+  /* Third section */
+  .smartContractContainerDetailsLeftSide {
+    width: 100%;
+  }
+
+  .smartContractContainerDetailsRightSide {
+    display: none;
+  }
+
+  .challengeBtn {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.9rem !important;
+    margin-bottom: 0.7em !important;
+    font-size: 16px !important;
+  }
+
+  /* Card item */
+  .cardItemContainer {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}

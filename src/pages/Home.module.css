@@ -1,0 +1,143 @@
+/* First section */
+.firstSectionBanner {
+  height: 409px;
+  margin-bottom: 3rem !important;
+}
+
+.firstSectionBanner h1,
+.firstSectionBanner p {
+  color: #ffffff;
+}
+
+.firstSectionBanner h1 {
+  font-weight: 500;
+  margin-top: 2rem !important;
+}
+
+.firstSectionBanner p {
+  max-width: 600px;
+  font-size: 18px;
+}
+
+/* Second section */
+.secondSectionContainer {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 800px;
+  margin-bottom: 2rem !important;
+}
+
+/* Third section */
+.thirdSectionContainer {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 3rem !important;
+}
+
+.thirdSectionContainer h1,
+.thirdSectionContainer p {
+  color: #ffffff;
+}
+
+.thirdSectionContentContainer {
+  margin-top: 3em !important;
+  margin-bottom: 3em !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1100px;
+}
+
+.thirdSectionIdeaCard {
+  width: 31.5%;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: stretch;
+}
+
+.thirdSectionIdeaIcon {
+  font-size: 42px !important;
+  opacity: 0.8 !important;
+}
+
+.thirdSectionIdeaCard p {
+  color: var(--primary-text-color);
+  font-size: 22px !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+.thirdSectionIdeaCard span {
+  text-align: justify;
+}
+
+/* Forth section */
+.forthSectionCard {
+  width: 32%;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 1.5rem !important;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.forthSectionCard svg {
+  opacity: 0.8 !important;
+}
+
+.forthSectionCard p {
+  color: var(--primary-text-color);
+  font-size: 16px !important;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Media queries */
+@media (max-width: 960px) {
+  .thirdSectionIdeaCard {
+    width: 48%;
+    border-radius: 0;
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .firstSectionBanner {
+    height: 359px;
+    margin-bottom: 2rem !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .firstSectionBanner h1 {
+    margin-bottom: 5px;
+    margin-top: 4rem !important;
+  }
+
+  .thirdSectionIdeaCard {
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 8px;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .forthSectionCard {
+    width: 100%;
+  }
+}

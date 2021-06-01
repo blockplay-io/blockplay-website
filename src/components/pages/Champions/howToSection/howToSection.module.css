@@ -1,0 +1,107 @@
+/* Cards container */
+.cardBoxContainer {
+  background: #ffffff;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.cardBoxContainer h5 {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-text-color);
+  font-size: 26px !important;
+  margin-bottom: 1.2rem;
+}
+
+.boxContentContainer {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.boxRowContentContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1em;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.boxRowContentContainer:last-child {
+  border-bottom: 0;
+}
+
+.boxRowContentContainer span {
+  font-weight: 500;
+  font-size: 17px !important;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 9px;
+}
+
+.boxRowContentContainer p {
+  font-size: 16px !important;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.boxRowContentContainer li {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 16px !important;
+}
+
+/* Accordeon styling */
+.questionTitle {
+  font-weight: 500 !important;
+}
+
+.accordion {
+  border: 0.5px solid var(--primary-border-color) !important;
+  border-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+.accordion:first-child {
+  border-bottom: 0 !important;
+  border-top: 0.5px solid var(--primary-border-color) !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.accordion:last-child {
+  border-top: 0 !important;
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* Media queries */
+@media (max-width: 901px) {
+  .accordion {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .accordion:first-child,
+  .accordion:last-child {
+    border-radius: 0 !important;
+  }
+}

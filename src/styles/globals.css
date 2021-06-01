@@ -1,0 +1,52 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Default styles, css variables */
+:root {
+  --primary-color: #1d976c;
+  --primary-light-color: #56b794;
+  --primary-dark-color: #137a53;
+
+  --secondary-color: #4fbff2;
+  --secondary-light-color: #b2e3fa;
+  --secondary-dark-color: #0aa3ed;
+
+  --primary-error-color: #f44336;
+
+  --round-corner: 16px;
+  --max-width: 1300px;
+  --primary-text-color: rgba(0, 0, 0, 0.8);
+  --secondary-text-color: rgba(0, 0, 0, 0.6);
+  --primary-border-color: rgba(0, 0, 0, 0.16);
+  --primary-icon-color: rgba(0, 0, 0, 0.6);
+  --primary-border-size: 0.5px;
+}
+
+/* Default Styles */
+.defaultTransition {
+  -webkit-transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+  transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.defaultBg {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}

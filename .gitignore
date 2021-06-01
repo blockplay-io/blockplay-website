@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+# serverless
+/.serverless
+/.serverless_nextjs
+serverless.yml
+
 # testing
 /coverage
 

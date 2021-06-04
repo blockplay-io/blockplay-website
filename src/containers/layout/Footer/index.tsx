@@ -72,7 +72,7 @@ const Footer = () => {
             </Typography>
           </Link>
 
-          <Link href="https://t.me/signumchain" passHref>
+          <Link href="https://t.me/signumnetwork" passHref>
             <Typography component="a" target="_blank">
               Telegram
             </Typography>
@@ -97,9 +97,16 @@ const Footer = () => {
             Featured Links
           </Typography>
 
+          <Link href="https://www.burst-coin.org/exchanges/" passHref>
+            <Typography component="a">
+              Buy Signa here <b>*</b>
+            </Typography>
+          </Link>
+
           <Link href="/champions" passHref>
             <Typography component="a">Champions</Typography>
           </Link>
+
           <Link href="https://kohinoor.blockplay.io/" passHref>
             <Typography component="a" target="_blank">
               Koh-i-Noor

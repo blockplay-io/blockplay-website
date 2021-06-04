@@ -19,6 +19,10 @@ _Use this commands if you are going to deploy changes or start the deployment_
 - npm run build - Build project's production site
 - npm start - Start server
 
+_For deployments in custom servers, you just need to watch the following video_
+
+- https://www.youtube.com/watch?v=1ykSXau838c
+
 ## Website routes
 
 ```

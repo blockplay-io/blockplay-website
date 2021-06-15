@@ -77,7 +77,6 @@ const Footer = () => {
               Telegram
             </Typography>
           </Link>
-
           <Link href="https://twitter.com/signum_official" passHref>
             <Typography component="a" target="_blank">
               Twitter

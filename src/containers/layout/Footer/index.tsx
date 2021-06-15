@@ -78,7 +78,7 @@ const Footer = () => {
             </Typography>
           </Link>
 
-          <Link href="https://twitter.com/Signum_Network_" passHref>
+          <Link href="https://twitter.com/signum_official" passHref>
             <Typography component="a" target="_blank">
               Twitter
             </Typography>

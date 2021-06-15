@@ -128,7 +128,7 @@ export default function Home() {
             }}
           />
 
-          {/* Soon */}
+          {/* Soon, https://signum.dappository.world/ */}
           <PlatformCard
             title="Your next idea!"
             description="Easily create your dApp on the Signum blockchain using smart contracts, tokens and more!"
@@ -136,7 +136,7 @@ export default function Home() {
             side="right"
             imgUrl="/assets/pages/home/next.jpg"
             onClick={() => {
-              goToSite("https://signum.dappository.world/", true);
+              goToSite("https://burst.dappository.world/", true);
             }}
           />
         </Grid>

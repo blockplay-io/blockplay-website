@@ -246,7 +246,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
     alert("Signum address copied to clipboard!");
     copy(weightClassData.smartContractAddress);
     window.location.href =
-      "burst://requestBurst?receiver=" + weightClassData.smartContractAddress;
+      "signum://requestBurst?receiver=" + weightClassData.smartContractAddress;
   };
 
   // First function render
@@ -579,7 +579,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                 <QRCode
                   size={110}
                   value={
-                    "burst://requestBurst?receiver=" +
+                    "signum://requestBurst?receiver=" +
                     weightClassData.smartContractAddress
                   }
                 />
@@ -633,7 +633,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                   weightClassData.unconfirmedTransactions.map(
                     (transaction, index) => {
                       // Get burstquantity of bid
-                      const burstAmount = thousands_separators(
+                      const signaAmount = thousands_separators(
                         sumNQTStringToNumber(transaction.amountNQT)
                       );
 
@@ -662,7 +662,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                           key={index}
                         >
                           <InfoCard
-                            title={`${burstAmount} BURST`}
+                            title={`${signaAmount} SIGNA`}
                             label={transaction.senderRS}
                             secondLabel={`${bidProbability}% chance`}
                             thirdLabel={chanceStatus}

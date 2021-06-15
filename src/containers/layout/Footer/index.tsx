@@ -98,11 +98,10 @@ const Footer = () => {
           </Typography>
 
           <Link href="https://www.burst-coin.org/exchanges/" passHref>
-            <Typography component="a">
-              Buy Signa here <b>*</b>
+            <Typography component="a" target="_blank">
+              Buy Signa here *
             </Typography>
           </Link>
-
           <Link href="/champions" passHref>
             <Typography component="a">Champions</Typography>
           </Link>

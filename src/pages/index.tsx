@@ -132,7 +132,7 @@ export default function Home() {
           <PlatformCard
             title="Your next idea!"
             description="Easily create your dApp on the Signum blockchain using smart contracts, tokens and more!"
-            btnLabel="See Examples * >"
+            btnLabel="See Examples >"
             side="right"
             imgUrl="/assets/pages/home/next.jpg"
             onClick={() => {

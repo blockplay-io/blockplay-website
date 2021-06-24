@@ -97,11 +97,12 @@ const Footer = () => {
             Featured Links
           </Typography>
 
-          <Link href="https://www.burst-coin.org/exchanges/" passHref>
+          <Link href="https://signum.network/exchanges.html" passHref>
             <Typography component="a" target="_blank">
-              Buy Signa here *
+              Buy Signa here
             </Typography>
           </Link>
+
           <Link href="/champions" passHref>
             <Typography component="a">Champions</Typography>
           </Link>
@@ -126,10 +127,11 @@ const Footer = () => {
       >
         <Grid item xs={12} md={6}>
           <img
-            src="/assets/powered.png"
-            style={{ width: "71px", marginRight: "7px" }}
+            src="/assets/powered.svg"
+            style={{ width: "91px", marginRight: "12px" }}
           />
-          <img src="/assets/burstjs.png" style={{ width: "121px" }} />
+
+          <img src="/assets/signumjs.svg" style={{ width: "121px" }} />
         </Grid>
         <Typography variant="body2" color="textSecondary" align="center">
           Hosted By{" "}

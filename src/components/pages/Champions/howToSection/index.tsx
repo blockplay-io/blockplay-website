@@ -560,12 +560,12 @@ const howToSection = () => {
                 <Typography component="li">
                   (Challenge you have sent) / (Challenge you have sent + weight)
                 </Typography>
+                <Typography component="li">(900) / (900 + 1,000)</Typography>
+                <Typography component="li">(900) / (1,900)</Typography>
+                <Typography component="li">0.4736</Typography>
                 <Typography component="li">
-                  (1,000) / (1,000 + 1,000)
+                  (0.4736) * (100) = 47.36%
                 </Typography>
-                <Typography component="li">(1,000) / (2,000)</Typography>
-                <Typography component="li">0.5</Typography>
-                <Typography component="li">(0.5) * (100) = 50%</Typography>
               </Grid>
 
               {/* Wait for fight results*/}

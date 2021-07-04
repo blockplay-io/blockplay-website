@@ -206,6 +206,10 @@
     display: none;
   }
 
+  .contentContainerRightSide {
+    width: 100%;
+  }
+
   /* Second section - smart contract details */
   .smartContractContainerDetailsLeftSide {
     width: 100%;
@@ -219,6 +223,7 @@
     margin-left: auto !important;
     margin-right: auto !important;
     max-width: 100% !important;
+    width: 100% !important;
     padding-top: 0.9rem !important;
     padding-bottom: 0.9rem !important;
     margin-bottom: 0.7em !important;

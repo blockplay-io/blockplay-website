@@ -35,9 +35,6 @@ import copy from "copy-to-clipboard";
 import Fade from "react-reveal/Fade";
 import { isMobile } from "react-device-detect";
 
-// Localstorage key for fetching interval
-const storageKey = "koh-i-noorFetch";
-
 const KohINoorToken = () => {
   // NFT data
   const [tokenData, updateTokenData] = useState({
@@ -192,6 +189,20 @@ const KohINoorToken = () => {
   // First function render
   const dataFetcher = async () => {
     const response = await assignDataToHook();
+
+    if (response) {
+      let handleRender = setInterval(async () => {
+        // Fetch Koh-I-Noor data every 60 seconds
+        await assignDataToHook();
+      }, 60000);
+
+      // After 500 seconds, stop fetching interval
+      setTimeout(() => {
+        // Delete intervals
+        window.clearInterval(handleRender);
+        handleRender = null;
+      }, 500000);
+    }
   };
 
   // Open owner in explorer
@@ -201,9 +212,6 @@ const KohINoorToken = () => {
 
   // ComponentDidMount
   useEffect(() => {
-    // Reset fetching interval status
-    localStorage.removeItem(storageKey);
-
     // Fetch initial data
     dataFetcher();
   }, []);
@@ -402,7 +410,7 @@ const KohINoorToken = () => {
                   direction="row"
                   alignItems="center"
                   justify="flex-start"
-                  style={{ marginTop: "0.7rem" }}
+                  style={{ marginTop: "0.7rem", width: "100%" }}
                 >
                   {isLoading == false ? (
                     <Button
@@ -456,92 +464,88 @@ const KohINoorToken = () => {
       </Grid>
 
       {/* Third section */}
-      <Fade up>
-        <Grid
-          container
-          direction="column"
-          justify="flex-start"
-          alignItems="center"
-          className={clsx(styles.thirdSectionContainer, "defaultBg")}
-          style={{
-            background:
-              "linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.92) 100%), url(/assets/pages/koh-i-noor/historyBanner.jpg)",
-          }}
-        >
-          <Typography variant="h4" align="center" gutterBottom>
-            HISTORY
-          </Typography>
+      <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="center"
+        className={clsx(styles.thirdSectionContainer, "defaultBg")}
+        style={{
+          background:
+            "linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.92) 100%), url(/assets/pages/koh-i-noor/historyBanner.jpg)",
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          HISTORY
+        </Typography>
 
-          <Typography align="justify" gutterBottom>
-            Koh-i-Noor is the most famous diamond of the ancient world,
-            discovered in India about 5000 years ago. This diamond passed the
-            hand of many rulers until being ceded to Queen Victoria after the
-            British annexation of the Punjab in 1849. The Koh-i-Noor has long
-            been a subject of diplomatic controversy, with India, Pakistan,
-            Iran, and Afghanistan all demanding its return from the UK at
-            various points.
-            <br />
-            In this virtual reality experiment, you can own the Koh-i-Noor token
-            but you will never know for how long.
-          </Typography>
-        </Grid>
-      </Fade>
+        <Typography align="justify" gutterBottom>
+          Koh-i-Noor is the most famous diamond of the ancient world, discovered
+          in India about 5000 years ago. This diamond passed the hand of many
+          rulers until being ceded to Queen Victoria after the British
+          annexation of the Punjab in 1849. The Koh-i-Noor has long been a
+          subject of diplomatic controversy, with India, Pakistan, Iran, and
+          Afghanistan all demanding its return from the UK at various points.
+          <br />
+          In this virtual reality experiment, you can own the Koh-i-Noor token
+          but you will never know for how long.
+        </Typography>
+      </Grid>
 
       {/* Forth section */}
-      <Fade up>
+
+      <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="flex-start"
+        className={clsx(styles.cardContainer, styles.tokenCard)}
+      >
+        <Typography variant="h5">Owners chain</Typography>
+        <Typography
+          align="center"
+          color="textSecondary"
+          style={{ marginBottom: "1.2rem", width: "100%" }}
+        >
+          Discover the chain of the last {isMobile ? "18" : "45"} owners and the
+          block they lost the ownership.
+        </Typography>
+
+        {/* Query of previous owner */}
         <Grid
           container
-          direction="column"
+          item
+          direction="row"
+          alignItems="stretch"
           justify="flex-start"
-          alignItems="flex-start"
-          className={clsx(styles.cardContainer, styles.tokenCard)}
+          wrap="wrap"
         >
-          <Typography variant="h5">Owners chain</Typography>
-          <Typography
-            align="center"
-            color="textSecondary"
-            style={{ marginBottom: "1.2rem", width: "100%" }}
-          >
-            Discover the chain of the last {isMobile ? "18" : "45"} owners and
-            the block they lost the ownership.
-          </Typography>
+          {isLoadingOwnerChainData === false ? (
+            ownersChain.map((item, index) => {
+              // Check if user is in mobile, it will render only 18 previous owners
+              // Check if it is already in the item #45, render less
+              if ((index > 17 && isMobile) || index > 44) {
+                return null;
+              }
 
-          {/* Query of previous owner */}
-          <Grid
-            container
-            item
-            direction="row"
-            alignItems="stretch"
-            justify="flex-start"
-            wrap="wrap"
-          >
-            {isLoadingOwnerChainData === false ? (
-              ownersChain.map((item, index) => {
-                // Check if user is in mobile, it will render only 18 previous owners
-                // Check if it is already in the item #45, render less
-                if ((index > 17 && isMobile) || index > 44) {
-                  return null;
-                }
-
-                return (
-                  <Grid item className={styles.cardItemContainer} key={index}>
-                    <InfoCard
-                      title={item.amount}
-                      label={item.address}
-                      secondLabel={item.block}
-                      thirdLabel=""
-                    />
-                  </Grid>
-                );
-              })
-            ) : (
-              <Typography variant="h6" align="center" style={{ width: "100%" }}>
-                Loading...
-              </Typography>
-            )}
-          </Grid>
+              return (
+                <Grid item className={styles.cardItemContainer} key={index}>
+                  <InfoCard
+                    title={item.amount}
+                    label={item.address}
+                    secondLabel={item.block}
+                    thirdLabel=""
+                  />
+                </Grid>
+              );
+            })
+          ) : (
+            <Typography variant="h6" align="center" style={{ width: "100%" }}>
+              Loading...
+            </Typography>
+          )}
         </Grid>
-      </Fade>
+      </Grid>
 
       {/* Fifth section */}
       <Fade up>

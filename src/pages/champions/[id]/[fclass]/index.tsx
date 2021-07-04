@@ -93,7 +93,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
       // Request data for specific contract
       const response = await burstApi.contract.getContract(fetchedId);
 
-      // Smart contract burst address
+      // Smart contract signum address
       const smartContractAddress = response.atRS;
 
       // Check for pendent transactions, (PENDENT FIGHTS in smart contract)
@@ -241,7 +241,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
     }, 2000);
   };
 
-  // Copy address to clipboard and open deeplink "Burst Phoenix wallet"
+  // Copy address to clipboard and open deeplink "Signum Phoenix wallet"
   const makePayment = () => {
     alert("Signum address copied to clipboard!");
     copy(weightClassData.smartContractAddress);
@@ -383,7 +383,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
       {/* SEO */}
       <MetaRenderer
         title={`${title} - Block Champions`}
-        description="Meet Block Champions, a dApp made with BlockTalk. Beat the every challenge you face! choose your class and knock their block off!"
+        description="Meet Block Champions, a dApp made with Signum SmartJ. Beat the every challenge you face! choose your class and knock their block off!"
         imgUrl={`${assetUrlToUse}assets/pages/champions/seo.jpg`}
       />
 
@@ -436,7 +436,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
               {/* Champion info */}
 
               {
-                // Check if that burst address has a username available
+                // Check if that signum address has a username available
                 weightClassData.champion.name &&
                 weightClassData.champion.name.trim() != "" ? (
                   <Typography>{weightClassData.champion.name || ""}</Typography>
@@ -521,7 +521,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
             marginBottom: "1.2rem",
           }}
         >
-          Send burst to challenge
+          Send Signa to challenge
         </Typography>
 
         {/* Smart contract details */}

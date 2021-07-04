@@ -74,19 +74,19 @@ export const weightClassessInfo = {
 
 // Test-net explorer
 const TEST_EXPLORER =
-  "https://testnet.explorer.burstcoin.network/?action=account&account=";
+  "https://testnet.explorer.signum.network/?action=account&account=";
 
 // Production explorer
-const EXPLORER = "https://explorer.burstcoin.network/?action=account&account=";
+const EXPLORER = "https://explorer.signum.network/?action=account&account=";
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Global variables for burtcoin explorer
+// Global variables for asset url
 
-// Test-net explorer
+// Development link
 const TEST_ASSETURL = "http://localhost:3000/";
 
-// Production explorer
+// Production link
 const ASSETURL = "https://blockplay.io/";
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

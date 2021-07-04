@@ -14,13 +14,13 @@ interface classCardProps {
   // Obvious!
   title: any;
 
-  // Champion's info, username or burst address
+  // Champion's info, username or signa address
   champion: any;
 
   // Side of images of card
   imgUrl: any;
 
-  // Weight label (Quantiy of burst)
+  // Weight label (Quantiy of signa)
   weightPriceLabel: any;
 
   // Action

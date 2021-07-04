@@ -545,7 +545,7 @@ const howToSection = () => {
                 </Typography>
 
                 <Typography>
-                  Challenging with 1,000 Signa means there is a 50% chance you
+                  Challenging with 900 Signa means there is a 47.36% chance you
                   will become the new champion.
                 </Typography>
 

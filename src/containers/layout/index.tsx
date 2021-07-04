@@ -45,7 +45,7 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Default SEO settings */}
       <MetaRenderer
         title="BlockPlay"
-        description="⚡ BlockPlay, create your game! creating smart contracts using BlockTalk on the Signum BlockChain."
+        description="⚡ BlockPlay, create your game! creating smart contracts using Signum SmartJ on the Signum BlockChain."
         imgUrl={null}
         canonical={urlCanonical}
       />

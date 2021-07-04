@@ -183,7 +183,7 @@ export default function Home() {
               <Typography component="p">Games</Typography>
               <Typography component="span" color="textSecondary">
                 Create your own trustless and unstoppable game. If you have an
-                idea, BlockTalk can bring it to life.
+                idea, Signum SmartJ can bring it to life.
               </Typography>
             </Grid>
 
@@ -221,7 +221,7 @@ export default function Home() {
               <Typography component="span" color="textSecondary">
                 Buy and sell any type of merchandise including digital goods
                 like software, music, and videos. All done peer-to-peer on the
-                Burst blockchain.
+                Signum blockchain.
               </Typography>
             </Grid> */}
           </Grid>
@@ -269,8 +269,8 @@ export default function Home() {
             <GitHubIcon fontSize="large" />
             <Typography component="p">Open-source</Typography>
             <Typography component="span" color="textSecondary">
-              Anyone can create their own smart contracts using BlockTalk. And
-              it's free!.
+              Anyone can create their own smart contracts using Signum SmartJ.
+              And it's free!.
             </Typography>
           </Grid>
         </Grid>

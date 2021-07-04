@@ -232,9 +232,10 @@ const Champions = () => {
       {/* SEO */}
       <MetaRenderer
         title="Block Champions - BlockPlay"
-        description="Meet Block Champions, a dApp made with BlockTalk. Beat the every challenge you face! choose your class and knock their block off!"
+        description="Meet Block Champions, a dApp made with Signum SmartJ. Beat the every challenge you face! choose your class and knock their block off!"
         imgUrl={`${assetUrlToUse}assets/pages/champions/seo.jpg`}
       />
+
       <Fade>
         {/* First section */}
         <Grid

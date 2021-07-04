@@ -85,8 +85,15 @@ const Header = ({ openSidebar }: HeaderProps) => {
           </Link>
 
           {/* Koh-i-Noor */}
-          <Link href="https://kohinoor.blockplay.io/" passHref>
-            <Typography component="a" target="_blank">
+          <Link href="/koh-i-noor">
+            <Typography
+              className={clsx(
+                "defaultTransition",
+                pathname && pathname.includes("/koh-i-noor")
+                  ? styles.activeLink
+                  : null
+              )}
+            >
               Koh-i-Noor
             </Typography>
           </Link>

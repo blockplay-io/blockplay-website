@@ -47,9 +47,9 @@ const Footer = () => {
             </Typography>
           </Link>
 
-          <Link href="https://github.com/burst-apps-team/blocktalk" passHref>
+          <Link href="https://github.com/signum-network/signum-smartj" passHref>
             <Typography component="a" target="_blank">
-              BlockTalk <b>*</b>
+              Signum SmartJ
             </Typography>
           </Link>
 
@@ -107,10 +107,8 @@ const Footer = () => {
             <Typography component="a">Champions</Typography>
           </Link>
 
-          <Link href="https://kohinoor.blockplay.io/" passHref>
-            <Typography component="a" target="_blank">
-              Koh-i-Noor
-            </Typography>
+          <Link href="/koh-i-noor" passHref>
+            <Typography component="a">Koh-i-Noor</Typography>
           </Link>
         </Grid>
       </Grid>

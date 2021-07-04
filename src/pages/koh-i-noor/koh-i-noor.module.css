@@ -1,0 +1,243 @@
+/* First section */
+.firstSectionBanner {
+  height: 500px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.firstSectionContentContainer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+}
+
+.firstSectionLeftSide h1,
+.firstSectionLeftSide h6 {
+  color: white;
+  width: 100%;
+}
+
+.firstSectionLeftSide h6 {
+  font-weight: 400;
+}
+
+.firstSectionLeftSide b {
+  color: var(--primary-error-color);
+}
+
+.firstSectionRightSide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Cards container */
+.cardContainer {
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 1.5rem !important;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em 3em;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardContainer h5 {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-text-color);
+  font-size: 26px !important;
+}
+
+/* Content contianer */
+.contentContainer {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.contentContainer:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.contentContainerLeftSide,
+.contentContainerRightSide {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contentContainerLeftSide svg {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.contentContainerRightSide {
+  width: 90%;
+  padding-left: 1em;
+  padding-top: 5px;
+  align-items: flex-start;
+}
+
+.contentContainerRightSide p {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+/* Second section */
+.tokenCard {
+  margin-top: -2.5rem !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Second section smart contract details */
+.smartContractContainerDetailsLeftSide {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.smartContractContainerDetailsRightSide {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.challengeBtn {
+  color: white !important;
+  background: black !important;
+  text-transform: none !important;
+  width: 100%;
+  max-width: 290px;
+  font-size: 15.5px !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  border-radius: 8px !important;
+}
+
+/* Third section */
+.thirdSectionContainer {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.thirdSectionContainer h4,
+.thirdSectionContainer p {
+  color: #ffffff;
+}
+
+.thirdSectionContainer p {
+  max-width: 960px;
+}
+
+/* Fifth section */
+.fifthSectionContainer {
+  max-width: 1000px;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+.fifthSectionLeftSide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.fifthSectionRightSide {
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.fifthSectionRightSide h4 {
+  font-weight: 500;
+}
+
+/* Card item */
+.cardItemContainer {
+  width: 31.4%;
+  margin-bottom: 1.5em !important;
+  margin-right: 1.2em !important;
+}
+
+.cardItemContainer:last-child {
+  margin-right: 0 !important;
+}
+
+/* Media queries */
+@media (max-width: 800px) {
+  .firstSectionBanner {
+    height: auto;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+
+  .cardContainer {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    border-radius: 0;
+  }
+
+  .tokenCard {
+    margin-top: 0px !important;
+  }
+
+  .contentContainerLeftSide {
+    display: none;
+  }
+
+  /* Second section - smart contract details */
+  .smartContractContainerDetailsLeftSide {
+    width: 100%;
+  }
+
+  .smartContractContainerDetailsRightSide {
+    display: none;
+  }
+
+  .challengeBtn {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.9rem !important;
+    margin-bottom: 0.7em !important;
+    font-size: 16px !important;
+  }
+
+  /* Card item */
+  .cardItemContainer {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+
+  /* Third section */
+  .thirdSectionContainer {
+    padding-bottom: 3rem;
+  }
+
+  /* Fifth section */
+  .fifthSectionRightSide {
+    padding-left: 0rem;
+  }
+}

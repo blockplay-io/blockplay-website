@@ -126,7 +126,7 @@ const Sidebar = ({ showSideDrawer, closeSideDrawer }: SidebarProps) => {
 
           <ListRender
             onClick={() => {
-              goToSite("https://kohinoor.blockplay.io/", true);
+              goToSite("/koh-i-noor");
             }}
             icon={
               <BlurOnIcon

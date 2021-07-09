@@ -13,7 +13,7 @@ const Footer = () => {
     <Grid
       container
       direction="column"
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
       className={styles.footerContainer}
       component="footer"
@@ -24,7 +24,7 @@ const Footer = () => {
         item
         direction="row"
         alignItems="flex-start"
-        justify="flex-start"
+        justifyContent="flex-start"
         wrap="wrap"
         className={styles.footerColumnsContainer}
         component="nav"
@@ -119,7 +119,7 @@ const Footer = () => {
         item
         direction="row"
         alignItems="center"
-        justify="space-between"
+        justifyContent="space-between"
         wrap="wrap"
         className={styles.footerBrandingContainer}
       >

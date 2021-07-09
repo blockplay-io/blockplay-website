@@ -31,7 +31,7 @@ const infoCard = ({
     <Grid
       container
       direction="column"
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
       className={optionalClass ? optionalClass : null}
       style={{
@@ -50,7 +50,7 @@ const infoCard = ({
         item
         container
         direction="row"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="center"
       >
         <Typography color="textSecondary" variant="body2">

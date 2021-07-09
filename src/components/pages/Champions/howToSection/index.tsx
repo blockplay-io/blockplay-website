@@ -27,7 +27,7 @@ const CardBoxContainer = (props) => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         className={styles.boxContentContainer}
       >
@@ -43,7 +43,7 @@ const howToSection = () => {
     <Grid
       container
       direction="column"
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
     >
       {/* First card - How can i play this game? */}
@@ -161,7 +161,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography gutterBottom>
@@ -197,7 +197,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography gutterBottom>
@@ -233,7 +233,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -267,7 +267,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -298,7 +298,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -330,7 +330,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -363,7 +363,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -396,7 +396,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -427,7 +427,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -459,7 +459,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>
@@ -492,7 +492,7 @@ const howToSection = () => {
               item
               container
               direction="column"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
             >
               <Typography>

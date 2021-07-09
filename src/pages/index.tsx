@@ -67,7 +67,7 @@ export default function Home() {
       <Grid
         container
         direction="column"
-        justify="center"
+        justifyContent="center"
         alignItems="center"
         className={clsx("defaultBg", styles.firstSectionBanner)}
         style={{
@@ -95,7 +95,7 @@ export default function Home() {
         <Grid
           container
           direction="column"
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="center"
           className={styles.secondSectionContainer}
         >
@@ -146,7 +146,7 @@ export default function Home() {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="center"
         className={clsx(styles.thirdSectionContainer, "defaultBg")}
         style={{
@@ -169,7 +169,7 @@ export default function Home() {
             container
             direction="row"
             alignItems="stretch"
-            justify="space-between"
+            justifyContent="space-between"
             wrap="wrap"
             className={styles.thirdSectionContentContainer}
           >
@@ -234,7 +234,7 @@ export default function Home() {
         <Grid
           container
           direction="row"
-          justify="space-between"
+          justifyContent="space-between"
           alignItems="stretch"
           style={{
             maxWidth: "964px",

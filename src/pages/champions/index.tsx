@@ -241,7 +241,7 @@ const Champions = () => {
         <Grid
           container
           direction="column"
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           className={styles.firstSectionBanner}
           wrap="nowrap"
@@ -265,7 +265,7 @@ const Champions = () => {
               container
               direction="row"
               alignItems="stretch"
-              justify="space-between"
+              justifyContent="space-between"
               className={styles.firstSectionActionsContainer}
             >
               <Typography>Challenge</Typography>
@@ -281,7 +281,7 @@ const Champions = () => {
         <Grid
           container
           direction="column"
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="center"
           className={styles.secondSectionContainer}
         >
@@ -310,7 +310,7 @@ const Champions = () => {
             container
             direction="row"
             alignItems="stretch"
-            justify="space-between"
+            justifyContent="space-between"
             wrap="wrap"
           >
             {

@@ -24,6 +24,7 @@ import {
   weightClassessInfo,
   creatorSCToUse,
   assetUrlToUse,
+  modernCreator,
 } from "../../../../utils/globalParameters";
 import { thousands_separators } from "../../../../utils/function/extra";
 
@@ -167,7 +168,8 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
         tri.type == 22 &&
         tri.amountNQT !== "0" &&
         tri.amountNQT !== 0 &&
-        tri.recipient !== creatorSCToUse
+        tri.recipient !== creatorSCToUse &&
+        tri.recipient !== modernCreator
       ) {
         // Default counter
         victories = 1;
@@ -391,7 +393,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
       <Grid
         container
         direction="column"
-        justify="center"
+        justifyContent="center"
         alignItems="center"
         className={clsx(styles.firstSectionBanner, "defaultBg")}
         wrap="nowrap"
@@ -412,7 +414,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         className={clsx(styles.cardContainer, styles.championCard)}
       >
@@ -424,7 +426,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
           container
           direction="row"
           alignItems="flex-start"
-          justify="flex-start"
+          justifyContent="flex-start"
           className={styles.contentContainer}
         >
           <Grid className={styles.contentContainerLeftSide}>
@@ -454,7 +456,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                     container
                     direction="row"
                     alignItems="center"
-                    justify="flex-start"
+                    justifyContent="flex-start"
                     className={styles.contentContainerRightSideVictoryIndicator}
                   >
                     <CheckCircleIcon />
@@ -474,7 +476,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                 container
                 direction="row"
                 alignItems="center"
-                justify="flex-start"
+                justifyContent="flex-start"
                 style={{ marginTop: "14px" }}
               >
                 <Typography
@@ -508,7 +510,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         className={styles.cardContainer}
       >
@@ -529,7 +531,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
           container
           direction="row"
           alignItems="flex-start"
-          justify="space-between"
+          justifyContent="space-between"
           style={{
             marginBottom: "1rem",
             paddingBottom: "1em",
@@ -558,7 +560,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                 container
                 direction="row"
                 alignItems="center"
-                justify="flex-start"
+                justifyContent="flex-start"
                 style={{ marginTop: "0.7rem" }}
               >
                 {isLoading == false ? (
@@ -614,7 +616,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
           item
           direction="row"
           alignItems="stretch"
-          justify="space-between"
+          justifyContent="space-between"
         >
           {
             // Query of next fights
@@ -625,7 +627,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                 item
                 direction="row"
                 alignItems="stretch"
-                justify="flex-start"
+                justifyContent="flex-start"
                 wrap="wrap"
               >
                 {
@@ -703,7 +705,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
         <Grid
           container
           direction="column"
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="flex-start"
           className={clsx(styles.cardContainer, styles.lastCardContainer)}
         >
@@ -719,7 +721,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                 item
                 direction="column"
                 alignItems="center"
-                justify="flex-start"
+                justifyContent="flex-start"
               >
                 {standingData &&
                 standingData.length &&
@@ -729,7 +731,7 @@ const FighthingClass = ({ fetchedId, fetchedClass }: HeaderProps) => {
                     item
                     direction="row"
                     alignItems="stretch"
-                    justify="flex-start"
+                    justifyContent="flex-start"
                   >
                     {
                       // Standing data loop

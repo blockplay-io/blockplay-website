@@ -39,7 +39,7 @@ const classCard = ({
       container
       direction="column"
       alignItems="stretch"
-      justify="flex-start"
+      justifyContent="flex-start"
       wrap="wrap"
       className={styles.platformCardContainer}
     >

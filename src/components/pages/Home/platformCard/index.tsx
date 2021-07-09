@@ -43,7 +43,7 @@ const platformCard = ({
       container
       direction="row"
       alignItems="center"
-      justify="space-between"
+      justifyContent="space-between"
       wrap="wrap"
       className={clsx(
         side && side == "right" ? styles.platformCardRight : null,

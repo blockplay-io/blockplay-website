@@ -9,8 +9,11 @@ const NODE = "https://europe.signum.network/";
 
 // Global variables related to champions
 
-// Smart contract creator id
+// Smart contract creator id (champions.blockplay.io)
 const creator = "2999936507779208272";
+
+// Smart contract modern creator (Champions Fee Account)
+export const modernCreator = "6323551872721638121";
 
 // Smart contract creator id (Test-net)
 const TEST_creator = "5219831338759933722";

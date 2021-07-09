@@ -228,7 +228,7 @@ const KohINoorToken = () => {
       <Grid
         container
         direction="column"
-        justify="center"
+        justifyContent="center"
         alignItems="center"
         className={clsx(styles.firstSectionBanner, "defaultBg")}
         style={{
@@ -241,7 +241,7 @@ const KohINoorToken = () => {
           container
           direction="row"
           alignItems="center"
-          justify="space-between"
+          justifyContent="space-between"
           className={styles.firstSectionContentContainer}
           wrap="wrap"
         >
@@ -284,7 +284,7 @@ const KohINoorToken = () => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         className={clsx(styles.cardContainer, styles.tokenCard)}
       >
@@ -297,7 +297,7 @@ const KohINoorToken = () => {
           container
           direction="row"
           alignItems="flex-start"
-          justify="flex-start"
+          justifyContent="flex-start"
           className={styles.contentContainer}
         >
           <Grid className={styles.contentContainerLeftSide}>
@@ -346,7 +346,7 @@ const KohINoorToken = () => {
           container
           direction="row"
           alignItems="flex-start"
-          justify="flex-start"
+          justifyContent="flex-start"
           className={styles.contentContainer}
         >
           <Grid className={styles.contentContainerLeftSide}>
@@ -372,7 +372,7 @@ const KohINoorToken = () => {
           container
           direction="column"
           alignItems="center"
-          justify="center"
+          justifyContent="center"
           className={styles.contentContainer}
         >
           <Typography variant="h5">Become the owner!</Typography>
@@ -384,7 +384,7 @@ const KohINoorToken = () => {
             container
             direction="row"
             alignItems="flex-start"
-            justify="space-between"
+            justifyContent="space-between"
             style={{ marginTop: "1.5rem" }}
           >
             {/* Details */}
@@ -409,7 +409,7 @@ const KohINoorToken = () => {
                   container
                   direction="row"
                   alignItems="center"
-                  justify="flex-start"
+                  justifyContent="flex-start"
                   style={{ marginTop: "0.7rem", width: "100%" }}
                 >
                   {isLoading == false ? (
@@ -467,7 +467,7 @@ const KohINoorToken = () => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="center"
         className={clsx(styles.thirdSectionContainer, "defaultBg")}
         style={{
@@ -497,7 +497,7 @@ const KohINoorToken = () => {
       <Grid
         container
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         className={clsx(styles.cardContainer, styles.tokenCard)}
       >
@@ -517,7 +517,7 @@ const KohINoorToken = () => {
           item
           direction="row"
           alignItems="stretch"
-          justify="flex-start"
+          justifyContent="flex-start"
           wrap="wrap"
         >
           {isLoadingOwnerChainData === false ? (
@@ -553,7 +553,7 @@ const KohINoorToken = () => {
           container
           direction="row"
           alignItems="flex-start"
-          justify="space-between"
+          justifyContent="space-between"
           className={styles.fifthSectionContainer}
         >
           {/* Left side */}

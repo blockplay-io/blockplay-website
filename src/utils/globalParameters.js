@@ -3,7 +3,7 @@
 const TEST_NODE = "http://nivbox.co.uk:6876/";
 
 // Production - node connection
-const NODE = "https://europe.signum.network/";
+const NODE = "https://wallet.signumcoin.ro/";
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

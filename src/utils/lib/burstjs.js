@@ -1,7 +1,7 @@
 // Node to use
 import { NODEToUse } from "../globalParameters";
 
-// Burst.js
+// Signum.js
 import { ApiSettings, composeApi } from "@burstjs/core";
 
 // Setup burstjs connection

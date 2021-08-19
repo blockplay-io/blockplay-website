@@ -19,7 +19,7 @@ import {
   assetUrlToUse,
 } from "../../utils/globalParameters";
 
-// Burst.js
+// Signum.js
 import { ContractDataView } from "@burstjs/contracts";
 import burstApi from "../../utils/lib/burstjs";
 

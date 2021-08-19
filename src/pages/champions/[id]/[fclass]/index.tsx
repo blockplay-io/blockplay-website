@@ -28,7 +28,7 @@ import {
 } from "../../../../utils/globalParameters";
 import { thousands_separators } from "../../../../utils/function/extra";
 
-// Burst.js
+// Signum.js
 import { ContractDataView } from "@burstjs/contracts";
 import { sumNQTStringToNumber } from "@burstjs/util";
 import burstApi from "../../../../utils/lib/burstjs";

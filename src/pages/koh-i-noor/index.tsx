@@ -20,7 +20,7 @@ import styles from "./koh-i-noor.module.css";
 import { assetUrlToUse, explorerToUse } from "../../utils/globalParameters";
 import { thousands_separators } from "../../utils/function/extra";
 
-// Burst.js
+// Signum.js
 import { ContractDataView } from "@burstjs/contracts";
 import burstApi from "../../utils/lib/burstjs";
 

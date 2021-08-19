@@ -53,9 +53,9 @@ const Footer = () => {
             </Typography>
           </Link>
 
-          <Link href="https://burst-apps-team.github.io/phoenix/" passHref>
+          <Link href="https://signum-network.github.io/signumjs/" passHref>
             <Typography component="a" target="_blank">
-              Burst.js <b>*</b>
+              Signum.js
             </Typography>
           </Link>
         </Grid>
